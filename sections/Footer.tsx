@@ -5,7 +5,7 @@ import { Linkedin, Mail, Download, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-off-black text-[#F0F0F0] pt-32 pb-16 px-6 md:px-12 border-t-8 border-matrix-green relative overflow-hidden">
+    <footer id="contact" className="bg-off-black text-[#F0F0F0] pt-32 pb-16 px-6 md:px-12 border-t-8 border-matrix-green relative overflow-hidden">
       {/* Decorative background grid line */}
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/5 pointer-events-none hidden xl:block"></div>
 

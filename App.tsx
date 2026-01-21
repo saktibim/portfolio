@@ -43,7 +43,7 @@ function App() {
               <motion.a
                 href="#experience"
                 whileHover={{ y: -2 }}
-                className="flex items-center gap-2.5 px-4 py-2 border border-off-black/5 bg-off-black text-[#F0F0F0] font-mono text-[10px] font-bold tracking-[0.15em] hover:shadow-[0_8px_16px_rgba(0,255,65,0.15)] transition-all no-underline overflow-hidden relative group"
+                className="flex items-center gap-2 px-3 py-1.5 border border-off-black/5 bg-off-black text-[#F0F0F0] font-mono text-[9px] font-bold tracking-[0.15em] hover:shadow-[0_8px_16px_rgba(0,255,65,0.15)] transition-all no-underline overflow-hidden relative group"
               >
                 <motion.div
                   className="absolute inset-0 bg-matrix-green opacity-0 group-hover:opacity-10 transition-opacity"
@@ -56,7 +56,7 @@ function App() {
               <motion.a
                 href="#services"
                 whileHover={{ y: -2 }}
-                className="flex items-center gap-2.5 px-4 py-2 border border-off-black/5 bg-off-black text-[#F0F0F0] font-mono text-[10px] font-bold tracking-[0.15em] hover:shadow-[0_8px_16px_rgba(0,255,65,0.15)] transition-all no-underline overflow-hidden relative group"
+                className="flex items-center gap-2 px-3 py-1.5 border border-off-black/5 bg-off-black text-[#F0F0F0] font-mono text-[9px] font-bold tracking-[0.15em] hover:shadow-[0_8px_16px_rgba(0,255,65,0.15)] transition-all no-underline overflow-hidden relative group"
               >
                 <motion.div
                   className="absolute inset-0 bg-matrix-green opacity-0 group-hover:opacity-10 transition-opacity"
@@ -72,7 +72,7 @@ function App() {
               <motion.a
                 href="#blog"
                 whileHover={{ y: -2 }}
-                className="flex items-center gap-2.5 px-4 py-2 border border-off-black/5 bg-off-black text-[#F0F0F0] font-mono text-[10px] font-bold tracking-[0.15em] hover:shadow-[0_8px_16px_rgba(0,255,65,0.15)] transition-all no-underline overflow-hidden relative group"
+                className="flex items-center gap-2 px-3 py-1.5 border border-off-black/5 bg-off-black text-[#F0F0F0] font-mono text-[9px] font-bold tracking-[0.15em] hover:shadow-[0_8px_16px_rgba(0,255,65,0.15)] transition-all no-underline overflow-hidden relative group"
               >
                 <motion.div
                   className="absolute inset-0 bg-matrix-green opacity-0 group-hover:opacity-10 transition-opacity"
