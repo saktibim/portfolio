@@ -44,8 +44,7 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="font-sans text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl mb-14 font-light"
         >
-          Stop bleeding profit in your supply chain. I build <span className="font-semibold text-off-black">data-driven systems</span> that reclaim lost margins and
-          <span className="text-off-black font-medium text-matrix-green underline decoration-matrix-green/30 decoration-4 underline-offset-4"> automate your growth.</span>
+          I’m Bima, a Supply Chain and Business Operations Analyst. I specialize in engineering lean infrastructure through <span className="font-semibold text-off-black">integrated ERP systems</span> and building <span className="font-semibold text-off-black">high-performance dashboards</span> that turn complex enterprise data into <span className="text-off-black font-medium text-matrix-green underline decoration-matrix-green/30 decoration-4 underline-offset-4">clear, actionable growth.</span>
         </motion.p>
 
         <motion.div
@@ -54,11 +53,11 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="flex flex-col sm:flex-row gap-5"
         >
-          <Button variant="primary" href="#contact" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
-            BOOK OPERATIONAL AUDIT
+          <Button variant="primary" href="#lab" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
+            VIEW MY PORTFOLIO
           </Button>
-          <Button variant="outline" href="#blog" className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all">
-            VIEW CASE STUDIES
+          <Button variant="outline" href="mailto:opswithbima@gmail.com" className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all">
+            HIRE ME FOR REMOTE WORK
           </Button>
         </motion.div>
       </motion.div>

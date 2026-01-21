@@ -49,7 +49,7 @@ function App() {
                   className="absolute inset-0 bg-matrix-green opacity-0 group-hover:opacity-10 transition-opacity"
                 />
                 <Database className="w-3.5 h-3.5 text-matrix-green" />
-                <span>SAP SD/MM : CERTIFIED</span>
+                <span>SAP SD/MM</span>
               </motion.a>
 
               {/* Badge 2: Optimization Standard */}

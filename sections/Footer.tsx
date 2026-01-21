@@ -65,12 +65,22 @@ const Footer: React.FC = () => {
             <ul className="space-y-6 font-mono text-xs">
               <li>
                 <motion.a
-                  href="https://linkedin.com/in/opswithbima"
+                  href="https://www.linkedin.com/in/bimasekti/"
                   whileHover={{ x: 5 }}
                   className="flex items-center text-gray-400 hover:text-white transition-colors group"
                 >
                   <Linkedin className="w-4 h-4 mr-4 text-gray-600 group-hover:text-matrix-green transition-colors" />
                   LINKEDIN_PROFILE <ExternalLink className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href="mailto:opswithbima@gmail.com"
+                  whileHover={{ x: 5 }}
+                  className="flex items-center text-gray-400 hover:text-white transition-colors group"
+                >
+                  <Mail className="w-4 h-4 mr-4 text-gray-600 group-hover:text-matrix-green transition-colors" />
+                  opswithbima@gmail.com
                 </motion.a>
               </li>
             </ul>

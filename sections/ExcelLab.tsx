@@ -24,7 +24,7 @@ const ExcelLab: React.FC<ExcelLabProps> = ({ onProjectClick }) => {
   };
 
   return (
-    <Section id="blog" className="bg-white">
+    <Section id="lab" className="bg-white">
       {/* Header Area */}
       <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between border-b border-gray-100 pb-12 gap-8">
         <motion.div
