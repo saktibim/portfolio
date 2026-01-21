@@ -101,7 +101,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 {/* Impact Metrics */}
                 <div className="bg-gray-50/50 border border-gray-100 p-10 md:p-14 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-matrix-green/20 font-bold uppercase tracking-widest">
-                    ANALYSIS_COMPLETE
+                    ROI_CONFIRMED // IMPACT_VERIFIED
                   </div>
                   <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-off-black mb-10 flex items-center gap-4">
                     <CheckCircle2 className="w-4 h-4 text-matrix-green" />

@@ -26,9 +26,9 @@ const Hero: React.FC = () => {
         </motion.div>
 
         <h1 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-off-black tracking-tight">
-          I solve operational<br />
-          complexity with <span className="relative inline-block">
-            <span className="relative z-10 text-off-black">data.</span>
+          Scale your operations<br />
+          without the <span className="relative inline-block">
+            <span className="relative z-10 text-off-black">chaos.</span>
             <motion.span
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -44,9 +44,8 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="font-sans text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl mb-14 font-light"
         >
-          I'm <span className="font-semibold text-off-black">Bima</span>, an Operations Manager and System Architect.
-          I specialize in building <span className="text-off-black font-medium">high-performance</span> supply chains and
-          <span className="text-off-black font-medium text-matrix-green underline decoration-matrix-green/30 decoration-4 underline-offset-4"> analytics engines.</span>
+          Stop bleeding profit in your supply chain. I build <span className="font-semibold text-off-black">data-driven systems</span> that reclaim lost margins and
+          <span className="text-off-black font-medium text-matrix-green underline decoration-matrix-green/30 decoration-4 underline-offset-4"> automate your growth.</span>
         </motion.p>
 
         <motion.div
@@ -55,11 +54,11 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="flex flex-col sm:flex-row gap-5"
         >
-          <Button variant="primary" href="#blog" className="px-8 py-4 text-sm font-bold tracking-wide">
-            EXPLORE THE LAB
+          <Button variant="primary" href="mailto:opswithbima@gmail.com" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
+            BOOK OPERATIONAL AUDIT
           </Button>
-          <Button variant="outline" href="mailto:opswithbima@gmail.com" className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all">
-            WORK WITH ME
+          <Button variant="outline" href="#blog" className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all">
+            VIEW CASE STUDIES
           </Button>
         </motion.div>
       </motion.div>
