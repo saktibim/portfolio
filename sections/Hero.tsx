@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
           Operation Architecture // Systems Strategy
         </motion.div>
 
-        <h1 className="font-mono text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9] mb-10 text-off-black tracking-tighter">
+        <h1 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-off-black tracking-tight">
           I solve operational<br />
           complexity with <span className="relative inline-block">
             <span className="relative z-10 text-off-black">data.</span>
@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 1, duration: 0.8, ease: "circOut" }}
-              className="absolute bottom-2 left-0 w-full h-[0.3em] bg-matrix-green -z-0 origin-left"
+              className="absolute bottom-1 left-0 w-full h-[0.3em] bg-matrix-green -z-0 origin-left"
             />
           </span>
         </h1>

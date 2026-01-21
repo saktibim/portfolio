@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../components/Section';
 import { PROFESSIONAL_HISTORY } from '../constants';
-import { ChevronRight, Database, Code, Activity } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 const Experience: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const Experience: React.FC = () => {
           <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] mb-6 text-gray-400">
             02 // PROFESSIONAL_CHRONOLOGY
           </h2>
-          <h3 className="font-mono text-4xl font-bold tracking-tighter">Impact History</h3>
+          <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">Impact History</h3>
         </motion.div>
       </div>
 

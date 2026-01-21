@@ -33,7 +33,7 @@ const Services: React.FC = () => {
             <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] mb-6 text-gray-400">
               01 // CORE_MODULES
             </h2>
-            <h3 className="font-mono text-4xl font-bold mb-8 leading-tight tracking-tighter">
+            <h3 className="font-mono text-2xl md:text-3xl font-bold mb-8 leading-tight tracking-tight">
               Services & <br />Expertise
             </h3>
             <p className="font-sans text-lg text-gray-500 mb-10 leading-relaxed font-light">

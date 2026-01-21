@@ -36,7 +36,7 @@ const ExcelLab: React.FC<ExcelLabProps> = ({ onProjectClick }) => {
           <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6">
             03 // PORTFOLIO_LAB
           </h2>
-          <h3 className="font-mono text-4xl font-bold tracking-tighter text-off-black">
+          <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight text-off-black">
             End-To-End Systems<br /> & Dashboards
           </h3>
         </motion.div>

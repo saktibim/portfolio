@@ -53,7 +53,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 <div className="h-px bg-gray-100 flex-grow"></div>
               </div>
 
-              <h1 className="font-mono text-4xl md:text-6xl font-bold mb-10 text-off-black leading-[0.9] tracking-tighter">
+              <h1 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-off-black leading-tight tracking-tight">
                 {project.title}
               </h1>
 
@@ -83,7 +83,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-matrix-green mb-8">
                     01 // THE_CHALLENGE
                   </h3>
-                  <p className="font-sans text-xl text-gray-500 leading-relaxed font-light italic border-l-2 border-gray-50 pl-8">
+                  <p className="font-sans text-lg text-gray-500 leading-relaxed font-light italic border-l-2 border-gray-50 pl-8">
                     "{project.content.problem}"
                   </p>
                 </div>
