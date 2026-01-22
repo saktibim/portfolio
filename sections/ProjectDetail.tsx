@@ -139,14 +139,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     Access the sanitized Excel dashboards and automated logic frameworks used in this audit.
                   </p>
 
-                  <motion.button
+                  <motion.a
+                    href={project.excelUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase py-4 tracking-[0.2em] hover:bg-white transition-colors flex items-center justify-center gap-3"
+                    className="w-full bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase py-4 tracking-[0.2em] hover:bg-white transition-colors flex items-center justify-center gap-3 no-underline"
                   >
                     <Download className="w-3.5 h-3.5" />
                     OPEN_DASHBOARD
-                  </motion.button>
+                  </motion.a>
 
                   <div className="mt-8 pt-8 border-t border-white/5 flex flex-col gap-2">
                     <p className="text-[9px] font-mono text-gray-500 uppercase tracking-widest">

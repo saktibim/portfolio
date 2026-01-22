@@ -43,15 +43,8 @@ const Footer: React.FC = () => {
               GLOBAL_STATUS
             </h3>
             <ul className="space-y-6 font-mono text-xs text-gray-400">
-              <li className="flex items-center group">
-                <span className="w-1.5 h-1.5 bg-matrix-green rounded-full mr-4 group-hover:animate-ping"></span>
-              </li>
               <li className="flex items-center">
-                <span className="w-1.5 h-1.5 bg-gray-700 rounded-full mr-4"></span>
-
-              </li>
-              <li className="flex items-center">
-                <span className="w-1.5 h-1.5 bg-gray-700 rounded-full mr-4"></span>
+                <span className="w-1.5 h-1.5 bg-matrix-green rounded-full mr-4 animate-pulse"></span>
                 MODE: REMOTE_SYNC
               </li>
             </ul>

@@ -113,7 +113,7 @@ export const PROJECTS: Project[] = [
         "Real-Time Monitoring: Developed a permanent spending dashboard that provides leadership with 100% visibility into monthly budget adherence."
       ]
     },
-    excelUrl: "#download-procurement-audit"
+    excelUrl: "https://docs.google.com/spreadsheets/d/1K0Ocy4Hpmkc0mjTSYuBG0wIxeFVRTBn9jE6ph25fIrE/edit?usp=sharing"
   },
   {
     id: 'inventory',
@@ -130,7 +130,7 @@ export const PROJECTS: Project[] = [
         "Operational Discipline: Transitioned from \"reactive\" ordering to a \"proactive\" cycle, ensuring our top-performing products maintain a 98%+ in-stock rate."
       ]
     },
-    excelUrl: "#download-inventory-health"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQDSbEdSeBlKRI9JzZ8yRjxBAdHjmF67D4t-iE3N5kn99Yc?e=gpw2A9"
   },
   {
     id: 'supplier',
@@ -147,7 +147,7 @@ export const PROJECTS: Project[] = [
         "Lead Time Accuracy: Reduced unexpected delays by integrating historical performance data into our demand forecasting, ensuring more realistic reorder points."
       ]
     },
-    excelUrl: "#download-supplier-audit"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQBblaO3MVfMTa3N5S9d1Q0QAZ1c2KAl6L7ib3HPdTuI-FU?e=rfIQa3"
   },
   {
     id: 'logistics',
@@ -164,7 +164,7 @@ export const PROJECTS: Project[] = [
         "Negotiation Power: We now use the Cost per KG benchmarks to audit carrier quotes and drive more aggressive procurement."
       ]
     },
-    excelUrl: "#download-freight-recovery"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQBbPqhOMyMmS4mzbV-VYCURARMvVoQZo2nURpv5hLGHsvs?e=EgOQ83"
   },
   {
     id: 'sales',
@@ -181,7 +181,7 @@ export const PROJECTS: Project[] = [
         "Data-Driven Growth: Established a permanent feedback loop between marketing and supply chain, ensuring that we only \"turn on the taps\" for advertising when inventory health audits confirm sufficient stock levels."
       ]
     },
-    excelUrl: "#download-sales-performance"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQCmPe1TfRWqRYAdTS3TJg8MARww3Q27bHy8qnAxMgu4XtI?e=4XPyad"
   },
   {
     id: 'warehouse',
@@ -197,6 +197,6 @@ export const PROJECTS: Project[] = [
         "Targeted Training: Replaced general team lectures with specific workstation coaching for underperformers, reducing return shipping costs by 15%."
       ]
     },
-    excelUrl: "#download-warehouse-audit"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQD5WA9MDJs3TKqO7QLpfftkAVwtR9vAtB0waL2f-6seVAw?e=WDdUZi"
   }
 ];
