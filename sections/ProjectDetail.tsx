@@ -133,10 +133,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
                   <FileSpreadsheet className="w-12 h-12 text-matrix-green mb-8 group-hover:scale-110 transition-transform duration-500" />
                   <h4 className="font-mono text-2xl font-bold mb-4 tracking-tighter">
-                    Artifact Hub
+                    Dashboard Hub
                   </h4>
                   <p className="font-sans text-xs text-gray-400 mb-10 leading-relaxed font-light tracking-wide">
-                    Access the foundational models and sanitized logic frameworks used in this deployment.
+                    Access the sanitized Excel dashboards and automated logic frameworks used in this audit.
                   </p>
 
                   <motion.button
@@ -145,7 +145,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     className="w-full bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase py-4 tracking-[0.2em] hover:bg-white transition-colors flex items-center justify-center gap-3"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    GET_ARTIFACT
+                    OPEN_DASHBOARD
                   </motion.button>
 
                   <div className="mt-8 pt-8 border-t border-white/5 flex flex-col gap-2">
