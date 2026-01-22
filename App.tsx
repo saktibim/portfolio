@@ -70,7 +70,7 @@ function App() {
 
               {/* Badge 3: Analytics Engine */}
               <motion.a
-                href="#blog"
+                href="#lab"
                 whileHover={{ y: -2 }}
                 className="flex items-center gap-2 px-3 py-1.5 border border-off-black/5 bg-off-black text-[#F0F0F0] font-mono text-[9px] font-bold tracking-[0.15em] hover:shadow-[0_8px_16px_rgba(0,255,65,0.15)] transition-all no-underline overflow-hidden relative group"
               >
@@ -92,7 +92,7 @@ function App() {
               Experience
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix-green transition-all group-hover:w-full" />
             </a>
-            <a href="#blog" className="hover:text-off-black transition-colors relative group">
+            <a href="#lab" className="hover:text-off-black transition-colors relative group">
               The Lab
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix-green transition-all group-hover:w-full" />
             </a>
