@@ -11,22 +11,22 @@ import {
 
 export const SERVICES: Service[] = [
   {
-    id: 'remote-ops',
-    title: 'Remote Operations',
-    description: 'Fractional COO services for e-commerce. I build the systems so you can scale revenue without breaking your logistics.',
-    ctaText: 'Scale With Stability'
+    id: 'audit',
+    title: 'Operational Health Audit',
+    description: 'A 2-hour diagnostic of your current Excel/Google Sheets workflows. I identify bottlenecks and build a custom "Mini-Dashboard" sample to prove immediate ROI.',
+    ctaText: 'Request an Audit'
   },
   {
-    id: 'consulting',
-    title: 'Operations Consulting',
-    description: 'Six Sigma process audit. I identify hidden bottlenecks, eliminate waste, and streamline your workflows for maximum efficiency.',
-    ctaText: 'Get Your Audit'
+    id: 'inventory-velocity',
+    title: 'Inventory Velocity Engine',
+    description: 'Enterprise-level stock logic for scaling brands. I identify "Dead Capital" in your warehouse and automate Buy/Return signals to optimize cash flow.',
+    ctaText: 'Recover Capital'
   },
   {
-    id: 'dashboards',
-    title: 'Dashboard Creation',
-    description: 'Business Intelligence Architecture. Turn raw, messy data into decision-ready insights with Custom Power BI & Excel tools.',
-    ctaText: 'Visualize Your ROI'
+    id: 'fractional-ops',
+    title: 'Fractional Ops Analyst',
+    description: 'Dedicated operational infrastructure for remote-first companies. I build lean supply chains that scale without increasing overhead.',
+    ctaText: 'Check Availability'
   }
 ];
 
