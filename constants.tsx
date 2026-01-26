@@ -10,6 +10,8 @@ import {
   Activity
 } from 'lucide-react';
 
+export const CALENDLY_URL = "https://calendly.com/opswithbima/30min?background_color=00ff6f&text_color=000000&primary_color=ffffff";
+
 export const SERVICES: Service[] = [
   {
     id: 'audit',
@@ -26,7 +28,7 @@ export const SERVICES: Service[] = [
   {
     id: 'fractional-ops',
     title: 'Fractional Ops Analyst',
-    description: 'Dedicated operational infrastructure for remote-first companies. I build lean supply chains that scale without increasing overhead.',
+    description: 'Dedicated operational infrastructure for remote-first companies. I build lean supply chains that scale without increasing overhead. [Capacity: 1/3 Slots Available]',
     ctaText: 'Check Availability'
   },
   {
@@ -41,6 +43,7 @@ export const SERVICES: Service[] = [
       pivot: "I offer Managed Operations Intelligence. I don't just build your dashboard; I own the health of your data pipeline. I ensure that every Monday morning, you have the precise metrics you need to make high-stakes decisions with 100% confidence.",
       tiers: [
         {
+          isPopular: true,
           title: "Tier 1: Basic Monitoring (The \"Static\" Tier)",
           price: "$300 – $600 / month",
           focus: "Essential visibility for stable operations.",

@@ -11,6 +11,7 @@ export interface Service {
     problem: string;
     pivot: string;
     tiers: {
+      isPopular?: boolean;
       title: string;
       price: string;
       focus: string;

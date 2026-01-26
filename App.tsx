@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from './sections/Hero';
 import Services from './sections/Services';
 import Experience from './sections/Experience';
 import ExcelLab from './sections/ExcelLab';
+import LeadMagnet from './sections/LeadMagnet';
 import Footer from './sections/Footer';
 import ProjectDetail from './sections/ProjectDetail';
 import ServiceDetail from './sections/ServiceDetail';
 import { Database, Sigma, TrendingUp, Crosshair } from 'lucide-react';
-import { PROJECTS, SERVICES } from './constants';
+import { PROJECTS, SERVICES, CALENDLY_URL } from './constants';
+
+declare global {
+  interface Window {
+    Calendly: any;
+  }
+}
 
 function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
@@ -26,6 +33,13 @@ function App() {
       setSelectedServiceId(id);
       setSelectedProjectId(null);
       window.scrollTo(0, 0);
+    } else {
+      // Trigger Calendly if no detailed page exists
+      if (window.Calendly) {
+        window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+      } else {
+        window.open(CALENDLY_URL, '_blank');
+      }
     }
   };
 
@@ -153,6 +167,7 @@ function App() {
               <Services onServiceClick={handleServiceClick} />
               <Experience />
               <ExcelLab onProjectClick={handleProjectClick} />
+              <LeadMagnet />
             </motion.div>
           )}
         </AnimatePresence>

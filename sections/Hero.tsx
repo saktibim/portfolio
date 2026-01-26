@@ -2,8 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import Section from '../components/Section';
+import { CALENDLY_URL } from '../constants';
+
+declare global {
+  interface Window {
+    Calendly: any;
+  }
+}
 
 const Hero: React.FC = () => {
+  const openCalendly = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.open(CALENDLY_URL, '_blank');
+    }
+  };
+
   return (
     <Section borderTop={false} className="min-h-[90vh] flex flex-col justify-center pt-32 pb-20 relative overflow-hidden">
       {/* Background Glow Effect */}
@@ -51,14 +67,47 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="flex flex-col sm:flex-row gap-5"
+          className="flex flex-col sm:flex-row gap-5 mb-20"
         >
           <Button variant="primary" href="#lab" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
             VIEW MY PORTFOLIO
           </Button>
-          <Button variant="outline" href="mailto:opswithbima@gmail.com" className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all">
-            HIRE ME FOR REMOTE WORK
+          <Button
+            variant="outline"
+            onClick={openCalendly}
+            className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all"
+          >
+            BOOK A DISCOVERY CALL
           </Button>
+        </motion.div>
+
+        {/* Social Proof Logos */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="pt-10 border-t border-gray-100"
+        >
+          <p className="font-mono text-[9px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-8">
+            Experience Delivering Results At:
+          </p>
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-8 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+            {/* HPE */}
+            <div className="flex items-baseline gap-1">
+              <span className="font-sans font-bold text-lg tracking-tight text-[#01A982]">HEWLETT PACKARD ENTERPRISE</span>
+            </div>
+
+            {/* DHL */}
+            <div className="flex items-baseline">
+              <span className="font-sans italic font-black text-2xl tracking-tighter text-[#D40511]">DHL</span>
+              <span className="font-sans italic font-bold text-[9px] ml-1 text-gray-400">SUPPLY CHAIN</span>
+            </div>
+
+            {/* Yusen */}
+            <div className="flex items-baseline gap-2">
+              <span className="font-sans font-extrabold text-xl tracking-tight text-[#1e3a8a]">YUSEN LOGISTICS</span>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
 

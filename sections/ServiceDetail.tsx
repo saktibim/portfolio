@@ -4,6 +4,13 @@ import { Service } from '../types';
 import Section from '../components/Section';
 import { ArrowLeft, CheckCircle2, Zap } from 'lucide-react';
 import Button from '../components/Button';
+import { CALENDLY_URL } from '../constants';
+
+declare global {
+    interface Window {
+        Calendly: any;
+    }
+}
 
 interface ServiceDetailProps {
     service: Service;
@@ -102,8 +109,13 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: idx * 0.1 }}
-                                        className="border border-gray-100 p-10 bg-gray-50/30 hover:border-matrix-green transition-all group"
+                                        className={`border ${tier.isPopular ? 'border-matrix-green shadow-[0_0_20px_rgba(0,255,65,0.1)]' : 'border-gray-100'} p-10 bg-gray-50/30 hover:border-matrix-green transition-all group relative`}
                                     >
+                                        {tier.isPopular && (
+                                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-matrix-green text-black font-mono text-[9px] font-bold px-3 py-1 tracking-[0.2em] shadow-lg">
+                                                MOST_POPULAR
+                                            </div>
+                                        )}
                                         <div className="flex justify-between items-start mb-8">
                                             <h4 className="font-mono text-xl font-bold text-off-black group-hover:text-matrix-green transition-all">
                                                 {tier.title}
@@ -160,7 +172,14 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                             <div className="relative z-10">
                                 <Button
                                     variant="primary"
-                                    href={service.content.closing.ctaUrl}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        if (window.Calendly) {
+                                            window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+                                        } else {
+                                            window.open(CALENDLY_URL, '_blank');
+                                        }
+                                    }}
                                     className="px-10 py-5"
                                 >
                                     {service.content.closing.ctaLabel}
