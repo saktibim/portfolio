@@ -6,7 +6,8 @@ import {
   Handshake,
   Truck,
   TrendingUp,
-  Warehouse
+  Warehouse,
+  Activity
 } from 'lucide-react';
 
 export const SERVICES: Service[] = [
@@ -27,6 +28,42 @@ export const SERVICES: Service[] = [
     title: 'Fractional Ops Analyst',
     description: 'Dedicated operational infrastructure for remote-first companies. I build lean supply chains that scale without increasing overhead.',
     ctaText: 'Check Availability'
+  },
+  {
+    id: 'managed-dashboards',
+    title: 'Managed Operations Dashboard',
+    description: 'Continuous monitoring and weekly updates for your core business metrics. I manage the data pipelines and dashboard health so your "Source of Truth" remains accurate as you scale.',
+    ctaText: 'Start Subscription',
+    icon: <Activity className="w-6 h-6" />,
+    content: {
+      headline: "Stop Managing Spreadsheets. Start Managing Your Business.",
+      problem: "Most dashboards die within three months. As your business scales, your data sources change, your formulas break, and your \"Source of Truth\" becomes a liability. You didn't start your company to spend your weekends debugging VLOOKUPs.",
+      pivot: "I offer Managed Operations Intelligence. I don't just build your dashboard; I own the health of your data pipeline. I ensure that every Monday morning, you have the precise metrics you need to make high-stakes decisions with 100% confidence.",
+      tiers: [
+        {
+          title: "Tier 1: Basic Monitoring (The \"Static\" Tier)",
+          price: "$300 – $600 / month",
+          focus: "Essential visibility for stable operations.",
+          scope: "Monthly data synchronization for 1–2 core sources (e.g., Shopify + Inventory Sheet).",
+          deliverables: ["Monthly \"Operational Health Check\" report", "Baseline maintenance to ensure zero downtime"],
+          bestFor: "Small businesses that need a reliable, professional pulse on their performance without the overhead of an in-house analyst."
+        },
+        {
+          title: "Tier 2: Active Operations (The \"Standard\" Tier)",
+          price: "$800 – $1,500 / month",
+          focus: "Decision-support for aggressive growth.",
+          scope: "Weekly data updates across 3–5 complex sources, including multi-channel reconciliation and advanced data cleaning.",
+          deliverables: ["Weekly performance snapshots", "Automated stock-level alerts", "Monthly 30-minute strategy call to translate data into action"],
+          bestFor: "Scaling companies making inventory, procurement, or staffing decisions on a weekly basis."
+        }
+      ],
+      closing: {
+        headline: "Your Data, Engineered by an Expert.",
+        text: "Choosing a managed service means you never have to wonder if your numbers are right. You get the same analytical rigor I applied at HPE and DHL, tailored specifically for your scale.\n\nReady to automate your insights? Click below to book a brief technical discovery call. We’ll discuss your current data \"mess\" and determine which tier fits your growth trajectory.",
+        ctaLabel: "Book Your Discovery Call",
+        ctaUrl: "mailto:opswithbima@gmail.com"
+      }
+    }
   }
 ];
 

@@ -6,19 +6,32 @@ import Experience from './sections/Experience';
 import ExcelLab from './sections/ExcelLab';
 import Footer from './sections/Footer';
 import ProjectDetail from './sections/ProjectDetail';
+import ServiceDetail from './sections/ServiceDetail';
 import { Database, Sigma, TrendingUp, Crosshair } from 'lucide-react';
-import { PROJECTS } from './constants';
+import { PROJECTS, SERVICES } from './constants';
 
 function App() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
 
   const handleProjectClick = (id: string) => {
     setSelectedProjectId(id);
+    setSelectedServiceId(null);
     window.scrollTo(0, 0);
+  };
+
+  const handleServiceClick = (id: string) => {
+    const service = SERVICES.find(s => s.id === id);
+    if (service?.content) {
+      setSelectedServiceId(id);
+      setSelectedProjectId(null);
+      window.scrollTo(0, 0);
+    }
   };
 
   const handleBack = () => {
     setSelectedProjectId(null);
+    setSelectedServiceId(null);
     window.scrollTo(0, 0);
   };
 
@@ -31,7 +44,7 @@ function App() {
           <div className="flex items-center gap-8">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              onClick={() => { setSelectedProjectId(null); window.scrollTo(0, 0); }}
+              onClick={() => { setSelectedProjectId(null); setSelectedServiceId(null); window.scrollTo(0, 0); }}
               className="font-mono font-bold text-xl tracking-tighter hover:text-matrix-green transition-colors cursor-pointer group"
             >
               opswithbima<span className="text-matrix-green group-hover:animate-pulse">.com</span>
@@ -104,7 +117,7 @@ function App() {
         <AnimatePresence mode="wait">
           {selectedProjectId ? (
             <motion.div
-              key="detail"
+              key="project-detail"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -113,6 +126,19 @@ function App() {
               {(() => {
                 const project = PROJECTS.find(p => p.id === selectedProjectId);
                 return project ? <ProjectDetail project={project} onBack={handleBack} /> : null;
+              })()}
+            </motion.div>
+          ) : selectedServiceId ? (
+            <motion.div
+              key="service-detail"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {(() => {
+                const service = SERVICES.find(s => s.id === selectedServiceId);
+                return service ? <ServiceDetail service={service} onBack={handleBack} /> : null;
               })()}
             </motion.div>
           ) : (
@@ -124,7 +150,7 @@ function App() {
               transition={{ duration: 0.5 }}
             >
               <Hero />
-              <Services />
+              <Services onServiceClick={handleServiceClick} />
               <Experience />
               <ExcelLab onProjectClick={handleProjectClick} />
             </motion.div>
