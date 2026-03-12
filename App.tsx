@@ -9,6 +9,7 @@ import LeadMagnet from './sections/LeadMagnet';
 import Footer from './sections/Footer';
 import ProjectDetail from './sections/ProjectDetail';
 import ServiceDetail from './sections/ServiceDetail';
+import AllProjects from './sections/AllProjects';
 import { Database, Sigma, TrendingUp, Crosshair } from 'lucide-react';
 import { PROJECTS, SERVICES, CALENDLY_URL } from './constants';
 
@@ -159,6 +160,7 @@ function App() {
       <main className="relative">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<AllProjects />} />
           <Route path="/project/:id" element={<ProjectDetailWrapper />} />
           <Route path="/service/:id" element={<ServiceDetailWrapper />} />
         </Routes>

@@ -4,6 +4,7 @@ import Section from '../components/Section';
 import { PROJECTS } from '../constants';
 
 import { Link } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
 
 const ExcelLab: React.FC = () => {
   const containerVariants = {
@@ -39,16 +40,24 @@ const ExcelLab: React.FC = () => {
           </h3>
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="font-sans text-gray-500 max-w-sm text-right font-light leading-relaxed hidden md:block"
+          className="flex flex-col items-end gap-6"
         >
-          A selection of automated supply chain audits,
-          real-time ERP integrations, and business intelligence suites.
-        </motion.p>
+          <p className="font-sans text-gray-500 max-w-sm text-right font-light leading-relaxed hidden md:block">
+            A selection of automated supply chain audits,
+            real-time ERP integrations, and business intelligence suites.
+          </p>
+          <Link
+            to="/projects"
+            className="font-mono text-xs font-bold text-off-black uppercase tracking-[0.2em] hover:text-matrix-green transition-colors flex items-center group no-underline"
+          >
+            VIEW_ALL_PROJECTS <ExternalLink className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
 
       {/* Projects Collection */}
