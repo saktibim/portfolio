@@ -44,6 +44,13 @@ export interface ExperienceItem {
   achievements: Achievement[];
 }
 
+export interface ProjectArticleBlock {
+  type: 'text' | 'image' | 'youtube';
+  content?: string;
+  url?: string;
+  alt?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -51,9 +58,30 @@ export interface Project {
   description: string;
   icon: ReactNode;
   content: {
-    problem: string;
-    solution: string;
-    impact: string[];
+    problem?: string;
+    solution?: string;
+    impact?: string[];
+    article?: {
+      title: string;
+      blocks: ({
+        type: 'text';
+        content: string;
+      } | {
+        type: 'image';
+        url: string;
+        alt: string;
+      } | {
+        type: 'youtube';
+        url: string;
+      })[];
+    };
   };
   excelUrl: string;
+  hubConfig?: {
+    title: string;
+    description: string;
+    buttonText: string;
+    format: string;
+    metadata: string;
+  };
 }

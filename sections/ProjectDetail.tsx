@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '../types';
-import Button from '../components/Button';
 import Section from '../components/Section';
 import { ArrowLeft, Download, FileSpreadsheet, CheckCircle2 } from 'lucide-react';
 
@@ -11,6 +10,51 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
+  const renderTextWithFormatting = (text: string) => {
+    return text.split('\n').map((line, lineIndex) => {
+      if (!line.trim()) return null;
+      
+      // Handle headings
+      if (line.startsWith('### ')) {
+        return (
+          <h3 key={lineIndex} className="font-mono text-xl font-bold text-off-black mt-12 mb-6 tracking-tight">
+            {line.replace('### ', '')}
+          </h3>
+        );
+      }
+      
+      // Handle list items
+      if (line.startsWith('- ')) {
+        const content = line.substring(2);
+        const parts = content.split(/(\*\*.*?\*\*)/g);
+        return (
+          <div key={lineIndex} className="flex items-start mb-4 ml-4">
+            <div className="w-1.5 h-1.5 bg-matrix-green rounded-full mr-4 mt-2.5 flex-shrink-0"></div>
+            <span className="font-sans text-gray-600 leading-relaxed font-light">
+              {parts.map((part, i) => 
+                part.startsWith('**') && part.endsWith('**') 
+                  ? <strong key={i} className="font-medium text-off-black">{part.slice(2, -2)}</strong> 
+                  : part
+              )}
+            </span>
+          </div>
+        );
+      }
+
+      // Handle normal paragraphs with bold parsing
+      const parts = line.split(/(\*\*.*?\*\*)/g);
+      return (
+        <p key={lineIndex} className="font-sans text-gray-600 text-lg leading-relaxed font-light mb-6">
+          {parts.map((part, i) => 
+            part.startsWith('**') && part.endsWith('**') 
+              ? <strong key={i} className="font-medium text-off-black">{part.slice(2, -2)}</strong> 
+              : part
+          )}
+        </p>
+      );
+    });
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -78,46 +122,87 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="lg:col-span-8 space-y-20"
               >
-                {/* Mission / Challenge */}
-                <div className="group">
-                  <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-matrix-green mb-8">
-                    01 // THE_CHALLENGE
-                  </h3>
-                  <p className="font-sans text-lg text-gray-500 leading-relaxed font-light italic border-l-2 border-gray-50 pl-8">
-                    "{project.content.problem}"
-                  </p>
-                </div>
-
-                {/* Technical Overview */}
-                <div>
-                  <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-matrix-green mb-8">
-                    02 // SYSTEMS_ARCHITECTURE
-                  </h3>
-                  <p className="font-sans text-lg text-gray-600 leading-relaxed font-light">
-                    {project.content.solution}
-                  </p>
-                </div>
-
-                {/* Impact Metrics */}
-                <div className="bg-gray-50/50 border border-gray-100 p-10 md:p-14 relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-matrix-green/20 font-bold uppercase tracking-widest">
-                    ROI_CONFIRMED // IMPACT_VERIFIED
+                {project.content.article ? (
+                  <div className="article-content">
+                    {project.content.article.blocks.map((block: any, idx: number) => {
+                      if (block.type === 'text') {
+                        return (
+                          <div key={idx} className="mb-8">
+                            {renderTextWithFormatting(block.content)}
+                          </div>
+                        );
+                      }
+                      if (block.type === 'image') {
+                        return (
+                          <div key={idx} className="my-12">
+                            <div className="border border-gray-100 bg-gray-50/50 p-2 rounded-lg">
+                              <img src={block.url} alt={block.alt} className="w-full h-auto rounded shadow-sm opacity-90 hover:opacity-100 transition-opacity" />
+                            </div>
+                            {block.alt && <p className="text-center text-[10px] font-mono text-gray-400 mt-4 uppercase tracking-widest">{block.alt}</p>}
+                          </div>
+                        );
+                      }
+                      if (block.type === 'youtube') {
+                        return (
+                          <div key={idx} className="my-12 aspect-video w-full">
+                            <iframe 
+                              className="w-full h-full rounded-lg shadow-xl" 
+                              src={block.url} 
+                              title="YouTube video player" 
+                              frameBorder="0" 
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                              allowFullScreen
+                            ></iframe>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
                   </div>
-                  <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-off-black mb-10 flex items-center gap-4">
-                    <CheckCircle2 className="w-4 h-4 text-matrix-green" />
-                    Key Performance Indicators
-                  </h3>
-                  <ul className="space-y-6">
-                    {project.content.impact.map((item, idx) => (
-                      <li key={idx} className="flex items-start group/li">
-                        <div className="w-1.5 h-1.5 bg-matrix-green rounded-full mr-6 mt-2.5 transition-transform group-hover/li:scale-150"></div>
-                        <p className="font-sans text-gray-600 text-base leading-relaxed font-light">
-                          {item}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                ) : (
+                  <>
+                    {/* Mission / Challenge */}
+                    <div className="group">
+                      <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-matrix-green mb-8">
+                        01 // THE_CHALLENGE
+                      </h3>
+                      <p className="font-sans text-lg text-gray-500 leading-relaxed font-light italic border-l-2 border-gray-50 pl-8">
+                        "{project.content.problem}"
+                      </p>
+                    </div>
+
+                    {/* Technical Overview */}
+                    <div>
+                      <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-matrix-green mb-8">
+                        02 // SYSTEMS_ARCHITECTURE
+                      </h3>
+                      <p className="font-sans text-lg text-gray-600 leading-relaxed font-light">
+                        {project.content.solution}
+                      </p>
+                    </div>
+
+                    {/* Impact Metrics */}
+                    <div className="bg-gray-50/50 border border-gray-100 p-10 md:p-14 relative overflow-hidden group">
+                      <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-matrix-green/20 font-bold uppercase tracking-widest">
+                        ROI_CONFIRMED // IMPACT_VERIFIED
+                      </div>
+                      <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-off-black mb-10 flex items-center gap-4">
+                        <CheckCircle2 className="w-4 h-4 text-matrix-green" />
+                        Key Performance Indicators
+                      </h3>
+                      <ul className="space-y-6">
+                        {project.content.impact?.map((item, idx) => (
+                          <li key={idx} className="flex items-start group/li">
+                            <div className="w-1.5 h-1.5 bg-matrix-green rounded-full mr-6 mt-2.5 transition-transform group-hover/li:scale-150"></div>
+                            <p className="font-sans text-gray-600 text-base leading-relaxed font-light">
+                              {item}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                )}
 
               </motion.div>
 
@@ -133,10 +218,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
                   <FileSpreadsheet className="w-12 h-12 text-matrix-green mb-8 group-hover:scale-110 transition-transform duration-500" />
                   <h4 className="font-mono text-2xl font-bold mb-4 tracking-tighter">
-                    Dashboard Hub
+                    {project.hubConfig ? project.hubConfig.title : "Dashboard Hub"}
                   </h4>
                   <p className="font-sans text-xs text-gray-400 mb-10 leading-relaxed font-light tracking-wide">
-                    Access the sanitized Excel dashboards and automated logic frameworks used in this audit.
+                    {project.hubConfig ? project.hubConfig.description : "Access the sanitized Excel dashboards and automated logic frameworks used in this audit."}
                   </p>
 
                   <motion.a
@@ -148,15 +233,15 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     className="w-full bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase py-4 tracking-[0.2em] hover:bg-white transition-colors flex items-center justify-center gap-3 no-underline"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    OPEN_DASHBOARD
+                    {project.hubConfig ? project.hubConfig.buttonText : "OPEN_DASHBOARD"}
                   </motion.a>
 
                   <div className="mt-8 pt-8 border-t border-white/5 flex flex-col gap-2">
                     <p className="text-[9px] font-mono text-gray-500 uppercase tracking-widest">
-                      FORMAT: .XLSX // .PBIX
+                      FORMAT: {project.hubConfig ? project.hubConfig.format : ".XLSX // .PBIX"}
                     </p>
                     <p className="text-[9px] font-mono text-gray-500 uppercase tracking-widest">
-                      METADATA: SANITIZED_DATASET
+                      METADATA: {project.hubConfig ? project.hubConfig.metadata : "SANITIZED_DATASET"}
                     </p>
                   </div>
                 </div>

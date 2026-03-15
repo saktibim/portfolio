@@ -1,4 +1,3 @@
-import React from 'react';
 import { Service, ExperienceItem, Project } from './types';
 import {
   Coins,
@@ -7,7 +6,8 @@ import {
   Truck,
   TrendingUp,
   Warehouse,
-  Activity
+  Activity,
+  BarChart2
 } from 'lucide-react';
 
 export const CALENDLY_URL = "https://calendly.com/opswithbima/30min?background_color=00ff6f&text_color=000000&primary_color=ffffff";
@@ -238,5 +238,60 @@ export const PROJECTS: Project[] = [
       ]
     },
     excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQD5WA9MDJs3TKqO7QLpfftkAVwtR9vAtB0waL2f-6seVAw?e=WDdUZi"
+  },
+  {
+    id: 'powerbi-tutorial',
+    title: 'Master Power BI: Data Visualization with Real-World Data Professional Survey — A Comprehensive Guide',
+    tags: ['#PowerBI', '#DataVisualization', '#DataCleaning'],
+    description: 'A comprehensive, step-by-step tutorial on mastering Power BI through a hands-on project using a real-world dataset of 630+ data professionals.',
+    icon: <BarChart2 className="w-6 h-6" />,
+    content: {
+      article: {
+        title: "Master Power BI: Data Visualization with Real-World Data Professional Survey — A Comprehensive Guide",
+        blocks: [
+          {
+            type: 'text',
+            content: "In this article, I created a detailed Power BI project using a real-world dataset derived from a survey of data professionals worldwide. Whether you’re a data scientist, analyst, or enthusiast, this guide will help you navigate through the process of data visualization, from importing and cleaning data to creating insightful dashboards.\n\n### Introduction\n\nData visualization is a critical skill in today’s data-driven world. Power BI, a powerful business analytics tool by Microsoft, allows you to visualize data and share insights across your organization. In this guide, we’ll use a dataset from a global survey of data professionals to demonstrate how to leverage Power BI to create meaningful visualizations."
+          },
+          {
+            type: 'image',
+            url: "/powerbi-dashboard.png",
+            alt: "Project-1 Global Data Professionals Benchmarking Dashboard"
+          },
+          {
+            type: 'youtube',
+            url: "https://www.youtube.com/embed/OT32CfJzzF0"
+          },
+          {
+            type: 'text',
+            content: "### Step 1: Importing the Data\n\nFirst, we’ll start by importing our data from an Excel file. This dataset includes responses from 600 to 700 data professionals around the globe, capturing details about their roles, salaries, preferred programming languages, and more.\n\n- **Connect to Data Source**: Open Power BI Desktop and select ‘Import from Excel’. Navigate to your dataset and connect.\n- **Navigate the Data**: Once connected, use the navigator window to select the relevant tables and data ranges."
+          },
+          {
+            type: 'text',
+            content: "### Step 2: Transforming the Data\n\nBefore visualizing, we need to clean and transform our data to ensure accuracy and relevance.\n\n- **Transform Data**: Choose the ‘Transform Data’ option to open Power Query Editor.\n- **Remove Unnecessary Columns**: Identify and remove columns with irrelevant data such as browser information, city, country, and referral source.\n- **Handle Text Data**: Ensure columns like job titles and salary ranges are cleaned and standardized. For instance, merge similar job titles and convert salary ranges into average values for better visualization."
+          },
+          {
+            type: 'text',
+            content: "### Step 3: Cleaning Specific Data Columns\n\n- **Job Titles**: Standardize job titles by merging similar entries. For instance, merge variations like \"business analyst\" and \"business analyst (senior)\" into a single category.\n- **Salary Data**: Convert salary ranges into average salaries by splitting the range column and calculating the mean value.\n- **Programming Languages**: Clean and categorize preferred programming languages by data professionals."
+          },
+          {
+            type: 'text',
+            content: "### Step 4: Data Visualization\n\nWith our data clean and ready, we can start creating visualizations.\n\n**Creating Cards:**\n- **Count of Survey Takers**: Use a card visualization to show the total number of survey participants.\n- **Average Age**: Display the average age of the survey participants.\n\n**Bar Charts:**\n- **Average Salary by Job Title**: Use a stacked bar chart to show the average salary for each job title.\n- **Preferred Programming Languages**: Visualize the preferred programming languages among different job titles using a clustered column chart.\n\n**Tree Maps and Gauges:**\n- **Country Representation**: Use a tree map to show the distribution of survey participants across different countries.\n- **Work-Life Balance and Salary Satisfaction**: Use gauges to display average satisfaction levels with work-life balance and salary.\n\n**Additional Insights:**\n- **Programming Language Preference**: Create a pie chart to show the distribution of preferred programming languages among survey participants."
+          },
+          {
+            type: 'text',
+            content: "### Step 5: Finalizing the Dashboard\n\n- **Organize Visuals**: Arrange your visuals neatly on the dashboard for a clean and professional look.\n- **Add Titles and Labels**: Ensure all charts and visuals are appropriately labeled for clarity.\n- **Review and Publish**: Review your dashboard, make necessary adjustments, and publish your report."
+          }
+        ]
+      }
+    },
+    excelUrl: "https://medium.com/@bimasekti/master-power-bi-data-visualization-with-real-world-data-a-comprehensive-guide-a8e7112022e9",
+    hubConfig: {
+      title: "Article Hub",
+      description: "Read the full step-by-step tutorial published on Medium.",
+      buttonText: "READ_ARTICLE",
+      format: ".URL // MEDIUM",
+      metadata: "TUTORIAL_GUIDE"
+    }
   }
 ];
