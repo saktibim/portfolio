@@ -2,14 +2,16 @@ import { Routes, Route, Link, useParams, useNavigate, useLocation } from 'react-
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Hero from './sections/Hero';
-import Skills from './sections/Skills';
+import Services from './sections/Services';
 import Experience from './sections/Experience';
 import ExcelLab from './sections/ExcelLab';
+import LeadMagnet from './sections/LeadMagnet';
 import Footer from './sections/Footer';
 import ProjectDetail from './sections/ProjectDetail';
+import ServiceDetail from './sections/ServiceDetail';
 import AllProjects from './sections/AllProjects';
 import { Database, Sigma, TrendingUp, Crosshair } from 'lucide-react';
-import { PROJECTS } from './constants';
+import { PROJECTS, SERVICES, CALENDLY_URL } from './constants';
 
 declare global {
   interface Window {
@@ -36,6 +38,22 @@ function ScrollToTop() {
 }
 
 const Home = () => {
+  const navigate = useNavigate();
+
+
+  const handleServiceClick = (id: string) => {
+    const service = SERVICES.find(s => s.id === id);
+    if (service?.content) {
+      navigate(`/service/${id}`);
+    } else {
+      if (window.Calendly) {
+        window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+      } else {
+        window.open(CALENDLY_URL, '_blank');
+      }
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -44,9 +62,10 @@ const Home = () => {
       transition={{ duration: 0.5 }}
     >
       <Hero />
-      <Skills />
+      <Services onServiceClick={handleServiceClick} />
       <Experience />
       <ExcelLab />
+      <LeadMagnet />
     </motion.div>
   );
 };
@@ -61,7 +80,15 @@ const ProjectDetailWrapper = () => {
   return <ProjectDetail project={project} onBack={() => navigate('/')} />;
 };
 
-// ServiceDetailWrapper removed
+const ServiceDetailWrapper = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const service = SERVICES.find(s => s.id === id);
+
+  if (!service) return <div>Service not found</div>;
+
+  return <ServiceDetail service={service} onBack={() => navigate('/')} />;
+};
 
 function App() {
   return (
@@ -114,8 +141,8 @@ function App() {
           </div>
 
           <div className="hidden md:flex gap-10 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500">
-            <Link to="/#skills" className="hover:text-off-black transition-colors relative group no-underline text-gray-500">
-              Skills
+            <Link to="/#services" className="hover:text-off-black transition-colors relative group no-underline text-gray-500">
+              Services
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix-green transition-all group-hover:w-full" />
             </Link>
             <Link to="/#experience" className="hover:text-off-black transition-colors relative group no-underline text-gray-500">
@@ -135,6 +162,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/project/:id" element={<ProjectDetailWrapper />} />
+          <Route path="/service/:id" element={<ServiceDetailWrapper />} />
         </Routes>
       </main>
 

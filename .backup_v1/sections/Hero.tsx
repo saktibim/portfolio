@@ -2,8 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import Section from '../components/Section';
+import { CALENDLY_URL } from '../constants';
+
+declare global {
+  interface Window {
+    Calendly: any;
+  }
+}
 
 const Hero: React.FC = () => {
+  const openCalendly = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.open(CALENDLY_URL, '_blank');
+    }
+  };
 
   return (
     <Section borderTop={false} className="min-h-[90vh] flex flex-col justify-center pt-32 pb-20 relative overflow-hidden">
@@ -27,9 +42,9 @@ const Hero: React.FC = () => {
         </motion.div>
 
         <h1 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-off-black tracking-tight">
-          Operations Analyst driving<br />
-          data-driven <span className="relative inline-block">
-            <span className="relative z-10 text-off-black">growth.</span>
+          Scale your operations<br />
+          without the <span className="relative inline-block">
+            <span className="relative z-10 text-off-black">chaos.</span>
             <motion.span
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -54,15 +69,15 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
           className="flex flex-col sm:flex-row gap-5 mb-20"
         >
-          <Button variant="primary" href="#skills" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
-            VIEW SKILLS
+          <Button variant="primary" href="#lab" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
+            VIEW MY PORTFOLIO
           </Button>
           <Button
             variant="outline"
-            href="#lab"
+            onClick={openCalendly}
             className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all"
           >
-            SEE CASE STUDIES
+            BOOK A DISCOVERY CALL
           </Button>
         </motion.div>
 

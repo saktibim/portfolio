@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --matrix-green: #00FF41;
+  --off-black: #050505;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-white text-off-black font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-matrix-green text-black;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-lg border-b border-gray-100/50;
+  }
+
+  .glow-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .glow-hover:hover {
+    @apply shadow-[0_0_20px_rgba(0,255,65,0.2)];
+  }
+
+  .matrix-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .matrix-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--matrix-green);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .matrix-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full transition-colors hover:bg-matrix-green/50;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}

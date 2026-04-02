@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
-import { Linkedin, ExternalLink } from 'lucide-react';
+import { Linkedin, Mail, Download, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -19,17 +19,21 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               className="font-mono text-4xl font-bold mb-10 leading-[0.9] tracking-tighter"
             >
-              Let's connect.
+              Let's optimize<br />
+              your operations.
             </motion.h2>
             <p className="font-sans text-gray-400 mb-12 max-w-sm leading-relaxed font-light">
-              Available for full-time roles and strategic contract opportunities. Let's discuss how I can add value to your team.
+              Available for remote contracts and specialized consulting projects.
+              Built for precision, scalability, and performance.
             </p>
             <div className="flex flex-wrap gap-5">
-              <Button href="#skills" variant="primary" className="border-none shadow-[0_0_20px_rgba(0,255,65,0.1)]">
-                VIEW SKILLS
+              <Button variant="primary" className="border-none shadow-[0_0_20px_rgba(0,255,65,0.1)]">
+                <Mail className="w-4 h-4 mr-3 inline" />
+                INIT_CONTACT
               </Button>
-              <Button href="#lab" variant="outline" className="border-white/10 text-white hover:border-white hover:bg-white hover:text-black">
-                SEE PORTFOLIO
+              <Button variant="outline" className="border-white/10 text-white hover:border-white hover:bg-white hover:text-black">
+                <Download className="w-4 h-4 mr-3 inline" />
+                GET_RESUME
               </Button>
             </div>
           </div>
@@ -59,6 +63,16 @@ const Footer: React.FC = () => {
                 >
                   <Linkedin className="w-4 h-4 mr-4 text-gray-600 group-hover:text-matrix-green transition-colors" />
                   LINKEDIN_PROFILE <ExternalLink className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href="mailto:opswithbima@gmail.com"
+                  whileHover={{ x: 5 }}
+                  className="flex items-center text-gray-400 hover:text-white transition-colors group"
+                >
+                  <Mail className="w-4 h-4 mr-4 text-gray-600 group-hover:text-matrix-green transition-colors" />
+                  opswithbima@gmail.com
                 </motion.a>
               </li>
             </ul>

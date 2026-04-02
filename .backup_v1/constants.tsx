@@ -1,4 +1,4 @@
-import { Skill, ExperienceItem, Project } from './types';
+import { Service, ExperienceItem, Project } from './types';
 import {
   Coins,
   Package,
@@ -6,33 +6,67 @@ import {
   Truck,
   TrendingUp,
   Warehouse,
+  Activity,
   BarChart2
 } from 'lucide-react';
 
-export const SKILLS: Skill[] = [
+export const CALENDLY_URL = "https://calendly.com/opswithbima/30min?background_color=00ff6f&text_color=000000&primary_color=ffffff";
+
+export const SERVICES: Service[] = [
   {
-    id: 'erp',
-    category: 'Enterprise Systems',
-    title: 'ERP Integration & Management',
-    tools: ['SAP SD', 'SAP MM', 'Warehouse Management Systems (WMS)']
+    id: 'audit',
+    title: 'Operational Health Audit',
+    description: 'A 2-hour diagnostic of your current Excel/Google Sheets workflows. I identify bottlenecks and build a custom "Mini-Dashboard" sample to prove immediate ROI.',
+    ctaText: 'Request an Audit'
   },
   {
-    id: 'data',
-    category: 'Data Analytics',
-    title: 'Business Intelligence & Visualization',
-    tools: ['Power BI', 'Advanced Excel', 'Data Modeling']
+    id: 'inventory-velocity',
+    title: 'Inventory Velocity Engine',
+    description: 'Enterprise-level stock logic for scaling brands. I identify "Dead Capital" in your warehouse and automate Buy/Return signals to optimize cash flow.',
+    ctaText: 'Recover Capital'
   },
   {
-    id: 'ops',
-    category: 'Operations',
-    title: 'Supply Chain Optimization',
-    tools: ['Inventory Control', 'Demand Forecasting', 'Logistics Planning', 'Route Optimization']
+    id: 'fractional-ops',
+    title: 'Fractional Ops Analyst',
+    description: 'Dedicated operational infrastructure for remote-first companies. I build lean supply chains that scale without increasing overhead. [Capacity: 1/3 Slots Available]',
+    ctaText: 'Check Availability'
   },
   {
-    id: 'methodology',
-    category: 'Process Improvement',
-    title: 'Lean Operations Methodology',
-    tools: ['Six Sigma Greenbelt', 'Procurement Audit', 'Root Cause Analysis']
+    id: 'managed-dashboards',
+    title: 'Managed Operations Dashboard',
+    description: 'Continuous monitoring and weekly updates for your core business metrics. I manage the data pipelines and dashboard health so your "Source of Truth" remains accurate as you scale.',
+    ctaText: 'Start Subscription',
+    icon: <Activity className="w-6 h-6" />,
+    content: {
+      headline: "Stop Managing Spreadsheets. Start Managing Your Business.",
+      problem: "Most dashboards die within three months. As your business scales, your data sources change, your formulas break, and your \"Source of Truth\" becomes a liability. You didn't start your company to spend your weekends debugging VLOOKUPs.",
+      pivot: "I offer Managed Operations Intelligence. I don't just build your dashboard; I own the health of your data pipeline. I ensure that every Monday morning, you have the precise metrics you need to make high-stakes decisions with 100% confidence.",
+      tiers: [
+        {
+          isPopular: true,
+          title: "Tier 1: Basic Monitoring (The \"Static\" Tier)",
+          price: "$300 – $600 / month",
+          focus: "Essential visibility for stable operations.",
+          scope: "Monthly data synchronization for 1–2 core sources (e.g., Shopify + Inventory Sheet).",
+          deliverables: ["Monthly \"Operational Health Check\" report", "Baseline maintenance to ensure zero downtime"],
+          bestFor: "Small businesses that need a reliable, professional pulse on their performance without the overhead of an in-house analyst."
+        },
+        {
+          title: "Tier 2: Active Operations (The \"Standard\" Tier)",
+          price: "$800 – $1,500 / month",
+          focus: "Decision-support for aggressive growth.",
+          scope: "Weekly data updates across 3–5 complex sources, including multi-channel reconciliation and advanced data cleaning.",
+          deliverables: ["Weekly performance snapshots", "Automated stock-level alerts", "Monthly 30-minute strategy call to translate data into action"],
+          bestFor: "Scaling companies making inventory, procurement, or staffing decisions on a weekly basis."
+        }
+      ],
+      closing: {
+        headline: "Your Data, Engineered by an Expert.",
+        text: "Choosing a managed service means you never have to wonder if your numbers are right. You get the same analytical rigor I applied at HPE and DHL, tailored specifically for your scale.\n\nReady to automate your insights? Click below to book a brief technical discovery call. We’ll discuss your current data \"mess\" and determine which tier fits your growth trajectory.",
+        ctaLabel: "Book Your Discovery Call",
+        ctaUrl: "mailto:opswithbima@gmail.com"
+      }
+    }
   }
 ];
 

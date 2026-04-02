@@ -1,10 +1,31 @@
 import { ReactNode } from 'react';
 
-export interface Skill {
+export interface Service {
   id: string;
-  category: string;
   title: string;
-  tools: string[];
+  description: string;
+  ctaText: string;
+  icon?: ReactNode;
+  content?: {
+    headline: string;
+    problem: string;
+    pivot: string;
+    tiers: {
+      isPopular?: boolean;
+      title: string;
+      price: string;
+      focus: string;
+      scope: string;
+      deliverables: string[];
+      bestFor: string;
+    }[];
+    closing: {
+      headline: string;
+      text: string;
+      ctaLabel: string;
+      ctaUrl: string;
+    };
+  };
 }
 
 export interface Achievement {

@@ -33,10 +33,10 @@ const ExcelLab: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6">
-            03 // CASE_STUDIES
+            03 // PORTFOLIO_LAB
           </h2>
           <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight text-off-black">
-            Portfolio &<br /> Selected Works
+            End-To-End Systems<br /> & Dashboards
           </h3>
         </motion.div>
 
