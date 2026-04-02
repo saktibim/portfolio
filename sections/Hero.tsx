@@ -43,9 +43,9 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="font-sans text-xl md:text-2xl text-gray-600 leading-relaxed max-w-2xl mb-14 font-light"
+          className="font-sans text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mb-14 font-light"
         >
-          I’m Bima, a Supply Chain and Business Operations Analyst. I specialize in engineering lean infrastructure through <span className="font-semibold text-off-black">integrated ERP systems</span> and building <span className="font-semibold text-off-black">high-performance dashboards</span> that turn complex enterprise data into <span className="text-off-black font-medium text-matrix-green underline decoration-matrix-green/30 decoration-4 underline-offset-4">clear, actionable growth.</span>
+          Hi, I'm Bima. I'm a Supply Chain and Operations Specialist with over a decade of experience unraveling complex logistics and optimizing global production processes. As a certified <span className="font-semibold text-off-black">Six Sigma Green Belt</span>, I specialize in combining powerful tools like <span className="font-semibold text-off-black">SAP SD/MM and Power BI</span> to turn chaotic data into clear, cost-saving strategies. Whether it's navigating intricate Amazon FBA ecosystems, international procurement, or scaling high-volume warehouse operations, I build the systems that help businesses run smoother.
         </motion.p>
 
         <motion.div

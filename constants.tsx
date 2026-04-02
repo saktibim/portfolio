@@ -11,78 +11,50 @@ import {
 
 export const SKILLS: Skill[] = [
   {
-    id: 'erp',
-    category: 'Enterprise Systems',
-    title: 'ERP Integration & Management',
-    tools: ['SAP SD', 'SAP MM', 'Warehouse Management Systems (WMS)']
+    id: 'tech',
+    category: 'Technical Skills',
+    title: 'Systems & Data Tools',
+    tools: ['SAP (SD & MM)', 'Power BI (DAX, Dashboards)', 'MRP Systems', 'Amazon Seller Central (FBA)', 'Advanced Excel (INDEX-MATCH, Pivot Tables)']
   },
   {
-    id: 'data',
-    category: 'Data Analytics',
-    title: 'Business Intelligence & Visualization',
-    tools: ['Power BI', 'Advanced Excel', 'Data Modeling']
+    id: 'ops-excellence',
+    category: 'Operational Excellence',
+    title: 'Process Optimization',
+    tools: ['Lean Six Sigma', 'Demand Forecasting', 'Inventory Velocity Analysis', 'Warehouse Optimization (FIFO)', 'Process Mapping (Flowcharts)']
   },
   {
-    id: 'ops',
-    category: 'Operations',
-    title: 'Supply Chain Optimization',
-    tools: ['Inventory Control', 'Demand Forecasting', 'Logistics Planning', 'Route Optimization']
-  },
-  {
-    id: 'methodology',
-    category: 'Process Improvement',
-    title: 'Lean Operations Methodology',
-    tools: ['Six Sigma Greenbelt', 'Procurement Audit', 'Root Cause Analysis']
+    id: 'strategic',
+    category: 'Strategic Management',
+    title: 'Leadership & Procurement',
+    tools: ['Global Procurement', 'Contract Negotiation', 'Supplier Relationship Management (SRM)', 'New Product Introduction (NPI)']
   }
 ];
 
 export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
   {
-    id: 'hpe',
-    company: 'Hewlett Packard Enterprise',
-    role: 'Business Operations Analyst',
-    period: '2022 — PRESENT',
-    headline: 'Scaling Global Infrastructure and Data Automation.',
-    context: 'Managed end-to-end material planning and order processing within a high-volume global supply chain.',
-    techStack: ['SAP SD/MM', 'Power BI', 'Advanced Excel'],
+    id: 'sleepez',
+    company: 'SleepEZ (AU, US, UK)',
+    role: 'Inventory & Supply Chain Specialist',
+    period: '08/2025 — 12/2025',
+    headline: 'Global Inventory & Backend Amazon FBA Optimization.',
+    context: 'Streamlined global inventory replenishment and enhanced brand operations across three international markets.',
+    techStack: ['Amazon FBA', 'Inventory Planning', 'Brand Strategy'],
     achievements: [
       {
-        title: 'Project Leadership',
-        description: 'Led New Product Introduction (NPI) cycles and coordinated complex supplier networks.'
+        title: 'Inventory Assurance',
+        description: 'Streamlined global inventory replenishment by monitoring stock levels for high-velocity SKUs (Mouth Tape, Nasal Strips), ensuring 0% stock-out rates during critical production shutdowns.'
       },
       {
-        title: 'Inventory Control',
-        description: 'Optimized stock control systems and monitored imports to ensure 100% material availability.'
-      }
-    ]
-  },
-  {
-    id: 'yusen',
-    company: 'Yusen Logistics',
-    role: 'Traffic Planner',
-    period: '2020 — 2022',
-    headline: 'Logistics Orchestration & Route Optimization.',
-    context: 'Coordinated transportation scheduling and optimized routing for complex delivery networks.',
-    techStack: ['Logistics Planning', 'Route Optimization'],
-    achievements: [
+        title: 'Brand Equity',
+        description: 'Enhanced brand equity across 3 international markets by auditing creative assets and establishing distinct brand voices for Airspire and SleepEZ to prevent brand cannibalization.'
+      },
       {
-        title: 'Impact',
-        description: 'Focused on delivery performance and fleet schedule optimization to minimize transit times and costs.'
-      }
-    ]
-  },
-  {
-    id: 'dhl',
-    company: 'DHL Supply Chain',
-    role: 'Inventory Analyst',
-    period: '2018 — 2020',
-    headline: 'Precision Warehouse Operations & Stock Accuracy.',
-    context: 'Oversaw large-scale warehouse operations with a focus on absolute inventory integrity.',
-    techStack: ['SAP', 'WMS'],
-    achievements: [
+        title: 'FBA Issue Resolution',
+        description: 'Resolved 100% of complex Amazon FBA backend discrepancies, including stuck orders and reimbursement escalations, through systematic operational problem-solving.'
+      },
       {
-        title: 'Impact',
-        description: 'Managed stock accuracy and optimized warehouse workflows to ensure seamless supply chain continuity.'
+        title: 'Content Optimization',
+        description: 'Optimized Amazon A+ Content for multiple product lines, utilizing a consumer-centric benefit ranking to improve conversion rates and feature hierarchy.'
       }
     ]
   },
@@ -90,14 +62,103 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     id: 'suryanesia',
     company: 'Suryanesia',
     role: 'Procurement & Logistics Specialist',
-    period: '2017 — 2018',
-    headline: 'Strategic Sourcing & Sustainable Energy Logistics.',
-    context: 'Handled full-cycle procurement and logistics for solar energy projects.',
-    techStack: ['Procurement', 'Green Logistics'],
+    period: '08/2024 — 09/2025',
+    headline: 'Strategic Sourcing & Warehouse Orchestration.',
+    context: 'Handled high-value contracts and comprehensive logistics for solar and energy project operations.',
+    techStack: ['Contract Negotiation', 'Project Logistics', 'Demand Planning'],
     achievements: [
       {
-        title: 'Impact',
-        description: 'Managed contract negotiations, supplier evaluations, and demand forecasting while ensuring regulatory compliance.'
+        title: 'Cost Reduction',
+        description: 'Reduced project overhead costs by sourcing and negotiating high-value contracts for materials, logistics, and warehouse equipment rentals.'
+      },
+      {
+        title: 'Vendor Management',
+        description: 'Ensured 100% project uptime by managing supplier and trucking vendor relationships and monitoring real-time performance metrics.'
+      },
+      {
+        title: 'Operations',
+        description: 'Orchestrated end-to-end warehouse operations, including inbound/outbound logistics and safety monitoring, to support continuous project execution.'
+      },
+      {
+        title: 'Demand Planning',
+        description: 'Improved forecast accuracy by collaborating with project teams to streamline supply chain processes and demand planning.'
+      }
+    ]
+  },
+  {
+    id: 'hpe',
+    company: 'Hewlett Packard Enterprise (HPE)',
+    role: 'Material & Order Management Specialist',
+    period: '03/2019 — 08/2023',
+    headline: 'Materials Management & Order Processing Efficiency.',
+    context: 'Spearheaded robust stock control and data-driven initiatives leveraging SAP MM and Power BI.',
+    techStack: ['SAP MM', 'Power BI', 'Demand Forecasting'],
+    achievements: [
+      {
+        title: 'Production Continuity',
+        description: 'Decreased production delays by 20% by spearheading demand forecasting initiatives and implementing a robust stock control system using SAP MM.'
+      },
+      {
+        title: 'Lead Time Reduction',
+        description: 'Reduced procurement lead times by 25% by establishing strategic supplier relationships and negotiating favorable payment and delivery terms.'
+      },
+      {
+        title: 'Process Optimization',
+        description: 'Achieved 30% improvement in order processing efficiency by designing and implementing a streamlined Purchase Order (PO) system.'
+      },
+      {
+        title: 'Waste Elimination',
+        description: 'Eliminated 25% of excess raw material stock through the implementation of a data-driven stock control system.'
+      },
+      {
+        title: 'Business Intelligence',
+        description: 'Facilitated data-driven decision-making by developing comprehensive Power BI dashboards to track KPI performance across the organization.'
+      }
+    ]
+  },
+  {
+    id: 'yusen',
+    company: 'Yusen Logistics',
+    role: 'Traffic Planner',
+    period: '11/2018 — 03/2019',
+    headline: 'Logistics Orchestration & Route Optimization.',
+    context: 'Enhanced transportation networks to minimize costs and improve scheduling metrics.',
+    techStack: ['Route Optimization', 'Traffic Management'],
+    achievements: [
+      {
+        title: 'Cost Efficiency',
+        description: 'Lowered fuel costs and transit times by 20% by optimizing daily transportation routes and delivery schedules.'
+      },
+      {
+        title: 'Visibility Control',
+        description: 'Boosted delivery visibility by implementing real-time tracking systems, significantly reducing customer-reported delays.'
+      },
+      {
+        title: 'Process Flow',
+        description: 'Increased transportation efficiency by 15% through cross-functional collaboration to eliminate bottlenecks in traffic management.'
+      }
+    ]
+  },
+  {
+    id: 'dhl',
+    company: 'DHL Supply Chain',
+    role: 'Inventory Analyst',
+    period: '01/2017 — 11/2018',
+    headline: 'Precision Warehouse Operations & Inventory Integrity.',
+    context: 'Maintained advanced FIFO protocols and strict compliance in a high-volume FMCG setting.',
+    techStack: ['WMS', 'FIFO', 'Compliance Audits'],
+    achievements: [
+      {
+        title: 'Stock Integrity',
+        description: 'Maintained 99.5% inventory accuracy for a high-volume FMCG warehouse (Unilever) managing over 500 unique SKUs.'
+      },
+      {
+        title: 'Protocol Implementation',
+        description: 'Reduced stock discrepancies by 10% by leading a team to implement advanced inventory management and FIFO protocols.'
+      },
+      {
+        title: 'Audit Compliance',
+        description: 'Increased audit scores by 20% through the execution of regular random cycle counts and adherence to corporate compliance standards.'
       }
     ]
   }

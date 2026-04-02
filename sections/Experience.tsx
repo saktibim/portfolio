@@ -103,6 +103,74 @@ const Experience: React.FC = () => {
             </motion.div>
           ))}
         </div>
+        
+        {/* Education & Certifications */}
+        <div className="mt-32 pt-20 border-t border-gray-100">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] mb-6 text-gray-400">
+              02.5 // ACADEMICS_&_CERTIFICATES
+            </h2>
+            <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">Education & Certifications</h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h4 className="font-mono text-lg font-bold text-matrix-green mb-6 uppercase tracking-wider">Education</h4>
+              <div className="bg-white border border-gray-100 p-8 hover:border-matrix-green/50 transition-colors hidden md:block w-full">
+                 <h5 className="font-sans font-bold text-lg text-off-black leading-snug mb-2">Bachelor of Electrical Engineering</h5>
+                 <p className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-4">Institut Sains & Teknologi Akprind</p>
+              </div>
+               {/* Mobile view fallback without full width box */}
+              <div className="md:hidden">
+                 <h5 className="font-sans font-bold text-lg text-off-black leading-snug mb-2">Bachelor of Electrical Engineering</h5>
+                 <p className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-4">Institut Sains & Teknologi Akprind</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h4 className="font-mono text-lg font-bold text-matrix-green mb-6 uppercase tracking-wider">Certifications</h4>
+              <ul className="space-y-6">
+                <li className="flex items-start">
+                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
+                   <div>
+                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Certified Lean Six Sigma Green Belt</p>
+                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Six Sigma Academy Amsterdam (2024)</p>
+                   </div>
+                </li>
+                <li className="flex items-start">
+                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
+                   <div>
+                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Certified Process Improvement & Process Mapping Expert</p>
+                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Six Sigma Academy Amsterdam (2024)</p>
+                   </div>
+                </li>
+                <li className="flex items-start">
+                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
+                   <div>
+                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Supply Chain Management Specialization</p>
+                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Rutgers University (2024)</p>
+                   </div>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </Section>
   );

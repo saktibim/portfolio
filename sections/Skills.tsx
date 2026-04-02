@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../components/Section';
 import { SKILLS } from '../constants';
-import { Database, TrendingUp, Truck, Sigma } from 'lucide-react';
+import { Database, TrendingUp, Sigma } from 'lucide-react';
 
 const Skills: React.FC = () => {
   const containerVariants = {
@@ -22,10 +22,9 @@ const Skills: React.FC = () => {
 
   const getIcon = (id: string) => {
     switch (id) {
-      case 'erp': return <Database className="w-6 h-6 text-matrix-green" />;
-      case 'data': return <TrendingUp className="w-6 h-6 text-matrix-green" />;
-      case 'ops': return <Truck className="w-6 h-6 text-matrix-green" />;
-      case 'methodology': return <Sigma className="w-6 h-6 text-matrix-green" />;
+      case 'tech': return <Database className="w-6 h-6 text-matrix-green" />;
+      case 'ops-excellence': return <TrendingUp className="w-6 h-6 text-matrix-green" />;
+      case 'strategic': return <Sigma className="w-6 h-6 text-matrix-green" />;
       default: return null;
     }
   };
@@ -57,7 +56,7 @@ const Skills: React.FC = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        className="grid grid-cols-1 md:grid-cols-3 gap-8"
       >
         {SKILLS.map((skill) => (
           <motion.div 
