@@ -97,7 +97,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 <div className="h-px bg-gray-100 flex-grow"></div>
               </div>
 
-              <h1 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-off-black leading-tight tracking-tight">
+              <h1 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-off-black leading-normal md:leading-snug tracking-tight">
                 {project.title}
               </h1>
 

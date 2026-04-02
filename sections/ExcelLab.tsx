@@ -90,7 +90,7 @@ const ExcelLab: React.FC = () => {
               </div>
 
               {/* Project Identity */}
-              <h4 className="font-mono text-xl font-bold text-off-black mb-6 leading-tight min-h-[50px] flex items-center group-hover:text-matrix-green transition-colors">
+              <h4 className="font-mono text-lg font-bold text-off-black mb-8 leading-normal group-hover:text-matrix-green transition-colors">
                 {project.title}
               </h4>
 
@@ -107,7 +107,7 @@ const ExcelLab: React.FC = () => {
               </div>
 
               {/* Narrative */}
-              <p className="font-sans text-[14px] text-gray-500 leading-relaxed font-light mb-10 h-full">
+              <p className="font-sans text-[14px] text-gray-500 leading-relaxed font-light mb-10 flex-grow">
                 {project.description}
               </p>
 
