@@ -6,7 +6,8 @@ import {
   Truck,
   TrendingUp,
   Warehouse,
-  BarChart2
+  BarChart2,
+  Calculator
 } from 'lucide-react';
 
 export const SKILLS: Skill[] = [
@@ -165,6 +166,23 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'freight-engine',
+    title: 'Dynamic Freight Cost Engine',
+    tags: ['#Logistics', '#FreightOptimization', '#AdvancedExcel'],
+    description: 'Developed an Automated Freight Calculator using a dynamic 2-Way INDEX & MATCH system, replacing manual searches with an error-proof retrieval system.',
+    icon: <Calculator className="w-6 h-6" />,
+    content: {
+      problem: "In global trade, shipping rates fluctuate constantly based on Zones and Service Levels. Most professionals rely on static VLOOKUPs, which only search vertically. If a shipping manager needs to switch from \"Standard\" to \"Express,\" they have to manually rewrite the formula, risking errors and delays.",
+      solution: "I developed an automated 2-Way INDEX & MATCH system that acts as a \"GPS coordinate\" logic for pricing. Using a matrix of 20 shipping zones and 5 service levels, I implemented Data Validation drop-downs to prevent typos. The system retrieves the exact shipping rate by finding the intersection of the selected row (Zone) and column (Service Level), then calculates total cost by multiplying against the shipment weight.",
+      impact: [
+        "Reduce Quote Time: Accelerated complex freight quoting from minutes to seconds.",
+        "Zero Typos: Automated data retrieval ensures 100% accuracy in pricing.",
+        "Scalability: New zones or service levels can be added to the source data without ever touching the lookup formula."
+      ]
+    },
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQCeqKcDBz-aRbMnjg1tESl_AQcbUniXLxnxrZEZ1fsUtFU?e=KooVwM"
+  },
   {
     id: 'procurement',
     title: 'Procurement Spend Audit',
