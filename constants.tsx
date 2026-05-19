@@ -34,7 +34,7 @@ export const SKILLS: Skill[] = [
 export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
   {
     id: 'sleepez',
-    company: 'SleepEZ (AU, US, UK)',
+    company: 'Sleep EZ Australia',
     role: 'Inventory & Supply Chain Specialist',
     period: '08/2025 — 12/2025',
     headline: 'Global Inventory & Backend Amazon FBA Optimization.',
