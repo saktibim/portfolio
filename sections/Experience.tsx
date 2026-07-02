@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../components/Section';
+import { Link } from 'react-router-dom';
 import { PROFESSIONAL_HISTORY } from '../constants';
 import { ChevronRight } from 'lucide-react';
 
@@ -163,11 +164,26 @@ const Experience: React.FC = () => {
                 <li className="flex items-start">
                    <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
                    <div>
+                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Demand Planning Management</p>
+                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Kaweroo Institute (2023)</p>
+                   </div>
+                </li>
+                <li className="flex items-start">
+                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
+                   <div>
                      <p className="font-sans font-bold text-off-black text-[15px] mb-1">Supply Chain Management Specialization</p>
                      <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Rutgers University (2024)</p>
                    </div>
                 </li>
               </ul>
+              <div className="mt-8">
+                <Link
+                  to="/certificates"
+                  className="inline-flex items-center font-mono text-xs font-bold text-off-black uppercase tracking-[0.2em] hover:text-matrix-green transition-colors group no-underline"
+                >
+                  VERIFY_CREDENTIAL_REGISTRY <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>

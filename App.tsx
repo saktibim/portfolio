@@ -8,6 +8,7 @@ import ExcelLab from './sections/ExcelLab';
 import Footer from './sections/Footer';
 import ProjectDetail from './sections/ProjectDetail';
 import AllProjects from './sections/AllProjects';
+import Certificates from './sections/Certificates';
 import { Database, Sigma, TrendingUp, Crosshair } from 'lucide-react';
 import { PROJECTS } from './constants';
 
@@ -126,6 +127,10 @@ function App() {
               The Lab
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix-green transition-all group-hover:w-full" />
             </Link>
+            <Link to="/certificates" className="hover:text-off-black transition-colors relative group no-underline text-gray-500">
+              Certificates
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-matrix-green transition-all group-hover:w-full" />
+            </Link>
           </div>
         </div>
       </nav>
@@ -135,6 +140,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/project/:id" element={<ProjectDetailWrapper />} />
+          <Route path="/certificates" element={<Certificates />} />
         </Routes>
       </main>
 

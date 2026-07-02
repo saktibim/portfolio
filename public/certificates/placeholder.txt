@@ -1,0 +1,7 @@
+Place your certificate files in this folder.
+Make sure the filenames match the ones specified in constants.tsx:
+- six_sigma_green_belt.pdf
+- process_improvement_expert.pdf
+- supply_chain_management.pdf
+
+Alternatively, you can edit the 'verificationUrl' fields in constants.tsx to point to external links (like Coursera, Rutgers, or LinkedIn).

@@ -1,4 +1,4 @@
-import { Skill, ExperienceItem, Project } from './types';
+import { Skill, ExperienceItem, Project, Certificate } from './types';
 import {
   Coins,
   Package,
@@ -338,5 +338,80 @@ export const PROJECTS: Project[] = [
       format: ".URL // MEDIUM",
       metadata: "TUTORIAL_GUIDE"
     }
+  }
+];
+
+export const CERTIFICATIONS: Certificate[] = [
+  {
+    id: 'six-sigma-green-belt',
+    title: 'Certified Lean Six Sigma Green Belt',
+    issuer: 'Six Sigma Academy Amsterdam',
+    date: '23-Apr-2024',
+    credentialId: 'ce366b67-31b6-4d89-b21e-315189fd41c8',
+    verificationUrl: '/certificates/Six Sigma Green Belt Certificate.png',
+    skills: ['Process Optimization', 'DMAIC Methodology', 'Statistical Analysis', 'Quality Management', 'BKO Accreditation']
+  },
+  {
+    id: 'process-mapping-expert',
+    title: 'Certified Process Improvement & Process Mapping Expert',
+    issuer: 'Six Sigma Academy Amsterdam',
+    date: '30-Jun-2024',
+    credentialId: '1bbbdb9b-f398-48fb-99e1-4fdb3bf95635',
+    verificationUrl: '/certificates/Certified Process Improvement and Process Mapping Expert.png',
+    skills: ['Process Mapping', 'Value Stream Mapping', 'Business Process Modeling (BPMN)', 'Waste Reduction', 'CPD Accreditation']
+  },
+  {
+    id: 'demand-planning-management',
+    title: 'Demand Planning Management',
+    issuer: 'Kaweroo Institute',
+    date: '24-Nov-2023',
+    credentialId: 'B-2108/2023-CP',
+    verificationUrl: '/certificates/Demand Planning Certificate.pdf',
+    skills: ['Demand Planning', 'Forecasting Methods', 'Forecast Error Tracking', 'Forecast Accuracy', 'Safety Stock Setting', 'Order Management']
+  },
+  {
+    id: 'supply-chain-logistics',
+    title: 'Supply Chain Logistics',
+    issuer: 'Rutgers University (via Coursera)',
+    date: '2024',
+    credentialId: '9NJ2U8CPN5KG',
+    verificationUrl: 'https://coursera.org/verify/9NJ2U8CPN5KG',
+    skills: ['Transportation Management', 'Logistics Networks', 'Warehousing', 'Last-Mile Delivery', 'Freight Management']
+  },
+  {
+    id: 'supply-chain-operations',
+    title: 'Supply Chain Operations',
+    issuer: 'Rutgers University (via Coursera)',
+    date: '2024',
+    credentialId: 'QJCZSD58CQLX',
+    verificationUrl: 'https://coursera.org/verify/QJCZSD58CQLX',
+    skills: ['Operations Management', 'Process Improvement', 'Lean Manufacturing', 'Quality Control', 'KPI Tracking']
+  },
+  {
+    id: 'supply-chain-planning',
+    title: 'Supply Chain Planning',
+    issuer: 'Rutgers University (via Coursera)',
+    date: '2024',
+    credentialId: '7PAXNYD2E8A6',
+    verificationUrl: 'https://coursera.org/verify/7PAXNYD2E8A6',
+    skills: ['Demand Forecasting', 'S&OP', 'Inventory Planning', 'MRP', 'Production Scheduling']
+  },
+  {
+    id: 'supply-chain-sourcing',
+    title: 'Supply Chain Sourcing',
+    issuer: 'Rutgers University (via Coursera)',
+    date: '2024',
+    credentialId: '9F64P4P5ZHFG',
+    verificationUrl: 'https://coursera.org/verify/9F64P4P5ZHFG',
+    skills: ['Strategic Sourcing', 'Vendor Selection', 'Procurement', 'Contract Negotiation', 'Supplier Evaluation']
+  },
+  {
+    id: 'cscmp-crm',
+    title: 'Supply Chain Foundations: Customer Relationship Management',
+    issuer: 'CSCMP (via LinkedIn Learning)',
+    date: '11-Jan-2024',
+    credentialId: 'CSCMP-CRM-20240111',
+    verificationUrl: '/certificates/CertificateOfCompletion_CSCMP Supply Chain Foundations Customer Relationship Management Professional Certificate.pdf',
+    skills: ['Customer Relationship Management', 'Supply Chain Strategy', 'Customer Service', 'Order Fulfillment', 'Service Level Management']
   }
 ];
