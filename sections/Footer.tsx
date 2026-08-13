@@ -2,8 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import { Linkedin, ExternalLink } from 'lucide-react';
+import { CALENDLY_URL } from '../constants';
 
 const Footer: React.FC = () => {
+  const handleBookCall = () => {
+    if ((window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({ url: CALENDLY_URL });
+    } else {
+      window.open(CALENDLY_URL, '_blank');
+    }
+  };
+
   return (
     <footer id="contact" className="bg-off-black text-[#F0F0F0] pt-32 pb-16 px-6 md:px-12 border-t-8 border-matrix-green relative overflow-hidden">
       {/* Decorative background grid line */}
@@ -25,11 +34,11 @@ const Footer: React.FC = () => {
               Available for full-time roles and strategic contract opportunities. Let's discuss how I can add value to your team.
             </p>
             <div className="flex flex-wrap gap-5">
-              <Button href="#skills" variant="primary" className="border-none shadow-[0_0_20px_rgba(0,255,65,0.1)]">
-                VIEW SKILLS
+              <Button onClick={handleBookCall} variant="primary" className="border-none shadow-[0_0_20px_rgba(0,255,65,0.1)]">
+                BOOK A CALL
               </Button>
-              <Button href="#lab" variant="outline" className="border-white/10 text-white hover:border-white hover:bg-white hover:text-black">
-                SEE PORTFOLIO
+              <Button href="#skills" variant="outline" className="border-white/10 text-white hover:border-white hover:bg-white hover:text-black">
+                VIEW SKILLS
               </Button>
             </div>
           </div>
@@ -38,10 +47,34 @@ const Footer: React.FC = () => {
             <h3 className="font-mono text-[10px] font-bold text-matrix-green mb-8 uppercase tracking-[0.25em]">
               GLOBAL_STATUS
             </h3>
-            <ul className="space-y-6 font-mono text-xs text-gray-400">
+            <ul className="space-y-6 font-mono text-xs text-gray-400 mb-12">
               <li className="flex items-center">
                 <span className="w-1.5 h-1.5 bg-matrix-green rounded-full mr-4 animate-pulse"></span>
                 MODE: REMOTE_SYNC
+              </li>
+            </ul>
+
+            <h3 className="font-mono text-[10px] font-bold text-matrix-green mb-8 uppercase tracking-[0.25em]">
+              CONTACT
+            </h3>
+            <ul className="space-y-6 font-mono text-xs text-gray-400">
+              <li>
+                <motion.a
+                  href="mailto:opswithbima@gmail.com"
+                  whileHover={{ x: 5 }}
+                  className="flex items-center text-gray-400 hover:text-white transition-colors group no-underline"
+                >
+                  opswithbima@gmail.com
+                </motion.a>
+              </li>
+              <li>
+                <motion.button
+                  onClick={handleBookCall}
+                  whileHover={{ x: 5 }}
+                  className="flex items-center text-gray-400 hover:text-white transition-colors group no-underline bg-transparent border-none p-0 cursor-pointer font-mono"
+                >
+                  BOOK_A_CALL <ExternalLink className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.button>
               </li>
             </ul>
           </div>

@@ -10,6 +10,8 @@ import {
   Calculator
 } from 'lucide-react';
 
+export const CALENDLY_URL = "https://calendly.com/opswithbima/30min?background_color=00ff6f&text_color=000000&primary_color=ffffff";
+
 export const SKILLS: Skill[] = [
   {
     id: 'tech',
