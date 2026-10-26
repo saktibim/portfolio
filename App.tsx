@@ -34,6 +34,23 @@ function ScrollToTop() {
   return null;
 }
 
+// One canonical per route so Google doesn't treat every page as a copy of the homepage
+function CanonicalLink() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'canonical';
+      document.head.appendChild(link);
+    }
+    const path = pathname !== '/' ? pathname.replace(/\/+$/, '') : '/';
+    link.href = `https://www.opswithbima.com${path}`;
+  }, [pathname]);
+  return null;
+}
+
 const Home = () => {
   useEffect(() => {
     document.title = SITE_TITLE;
@@ -84,6 +101,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white text-off-black selection:bg-matrix-green selection:text-black font-sans">
       <ScrollToTop />
+      <CanonicalLink />
       {/* Navigation / Header - Premium Glassmorphism */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
         <div className="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
