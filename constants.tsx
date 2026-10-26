@@ -7,7 +7,8 @@ import {
   TrendingUp,
   Warehouse,
   BarChart2,
-  Calculator
+  Calculator,
+  ShoppingCart
 } from 'lucide-react';
 
 export const CALENDLY_URL = "https://calendly.com/opswithbima/30min?background_color=00ff6f&text_color=000000&primary_color=ffffff";
@@ -236,6 +237,50 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'amazon-arbitrage',
+    title: "How I'd Approach Product Analytics for an Amazon Arbitrage Business",
+    tags: ['#AmazonFBA', '#ProductAnalytics', '#AdvancedExcel'],
+    description: 'A short video walkthrough of an Excel dashboard that screens products before buying: profit, ROI and a clear Buy / Investigate / Reject decision.',
+    icon: <ShoppingCart className="w-6 h-6" />,
+    content: {
+      article: {
+        title: "How I'd Approach Product Analytics for an Amazon Arbitrage Business",
+        blocks: [
+          {
+            type: 'text',
+            content: "I come from supply chain and inventory operations, where most of the work is making sure the numbers behind a buying decision are right. Amazon arbitrage is a business model I haven't worked in, so I gave myself a small project: build a dashboard that answers one question.\n\n**Which products look worth buying, and which need more checking first?**\n\nThe video below shows how it works. Here's the thinking behind it."
+          },
+          {
+            type: 'video',
+            url: '/videos/amazon-arbitrage.mp4',
+            caption: 'Dashboard walkthrough · sample data'
+          },
+          {
+            type: 'text',
+            content: "### The data I use\n\nFor each product, the dashboard starts with a handful of inputs:\n\n- What I'd pay for it (purchase cost)\n- What it might sell for on Amazon\n- Amazon's estimated fees\n- Other unit costs, like shipping and prep, which are easy to forget\n- How many units I'm planning to buy\n- Whether I've checked that I'm allowed to sell it, and whether the selling price has been verified\n\nFrom these, it calculates the profit per unit, the margin and the ROI, and then the total estimated profit at the planned quantity."
+          },
+          {
+            type: 'text',
+            content: "### The impact\n\nThe point isn't the formulas. It's seeing the whole picture in one place.\n\n- **Buy Candidate:** the numbers look good and the checks are done.\n- **Investigate:** it could be worth it, but something still needs confirming, such as eligibility or the real selling price.\n- **Reject:** the margin is too thin, or it loses money once all costs are counted.\n\nIn my sample data, the product with the highest profit potential hasn't had its eligibility checked yet. That's exactly the kind of case I want to catch before money is spent, and a table of profits alone would hide it."
+          },
+          {
+            type: 'text',
+            content: "### Filters that update everything\n\nPick a category, a retailer or a decision status, and every KPI and chart changes together. That makes it quick to answer questions like \"how do the Tesco products compare?\" or \"what's left in the Investigate pile?\""
+          },
+          {
+            type: 'text',
+            content: "### What this is, and isn't\n\nAll the data in the video is made-up sample data. The prices, fees and decisions are illustrative, not live Amazon numbers, and nothing here has been tested against real sales. It's a prototype, not a finished system.\n\nIf I were taking it further, I'd:\n\n- Test it against real purchase results and compare estimated profit with actual profit\n- Build in VAT and storage costs\n- Track sell-through speed and competition per product"
+          },
+          {
+            type: 'text',
+            content: "### Why I built it\n\nI like turning messy decisions into something people can check. This was my way of showing how I'd approach a new business model: start with the questions, organise the data, flag the risks, and keep the logic simple enough to explain.\n\nIf you work in e-commerce or inventory, feedback is welcome."
+          }
+        ]
+      }
+    },
+    isSample: true
+  },
   {
     id: 'freight-engine',
     title: 'Dynamic Freight Cost Engine',

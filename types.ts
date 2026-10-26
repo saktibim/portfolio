@@ -53,10 +53,15 @@ export interface Project {
       } | {
         type: 'youtube';
         url: string;
+      } | {
+        type: 'video';
+        url: string;
+        caption?: string;
       })[];
     };
   };
-  excelUrl: string;
+  // Link to the working file; the sidebar is hidden when empty
+  excelUrl?: string;
   // Practice project built on sample data, not client work
   isSample?: boolean;
   hubConfig?: {

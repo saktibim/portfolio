@@ -125,7 +125,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             {/* Content Architecture */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
 
-              <div className="lg:col-span-8 space-y-20">
+              <div className={`${project.excelUrl ? 'lg:col-span-8' : 'lg:col-span-12'} space-y-20`}>
                 {project.content.article ? (
                   <div className="article-content">
                     {project.content.article.blocks.map((block: any, idx: number) => {
@@ -144,6 +144,24 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                             </div>
                             {block.alt && <p className="text-center text-[10px] font-mono text-gray-400 mt-4 uppercase tracking-widest">{block.alt}</p>}
                           </div>
+                        );
+                      }
+                      if (block.type === 'video') {
+                        return (
+                          <figure key={idx} className="my-12">
+                            <video
+                              src={block.url}
+                              controls
+                              playsInline
+                              preload="metadata"
+                              className="w-full h-auto rounded-lg shadow-xl bg-off-black"
+                            />
+                            {block.caption && (
+                              <figcaption className="text-center text-[10px] font-mono text-gray-400 mt-4 uppercase tracking-widest">
+                                {block.caption}
+                              </figcaption>
+                            )}
+                          </figure>
                         );
                       }
                       if (block.type === 'youtube') {
@@ -225,6 +243,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
               </div>
 
               {/* Deployment Hub Sidebar */}
+              {project.excelUrl && (
               <div className="lg:col-span-4">
                 <div className="sticky top-32 bg-off-black text-[#F0F0F0] p-10 border-l-8 border-matrix-green shadow-2xl overflow-hidden relative group">
                   <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-matrix-green/5 blur-3xl rounded-full"></div>
@@ -259,6 +278,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   </div>
                 </div>
               </div>
+              )}
 
             </div>
           </div>
