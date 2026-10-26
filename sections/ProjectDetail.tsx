@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Project } from '../types';
 import Section from '../components/Section';
-import { ArrowLeft, Download, FileSpreadsheet, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Download, FileSpreadsheet, CheckCircle2, Info } from 'lucide-react';
+import Button from '../components/Button';
+import { openCalendly, useUpworkMode } from '../contact';
 
 interface ProjectDetailProps {
   project: Project;
@@ -10,6 +12,7 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
+  const upwork = useUpworkMode();
   const renderTextWithFormatting = (text: string) => {
     return text.split('\n').map((line, lineIndex) => {
       if (!line.trim()) return null;
@@ -56,12 +59,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen bg-white"
-    >
+    <div className="min-h-screen bg-white">
       {/* Detail Header - Slim Premium Glass */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-nav h-20 flex items-center">
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex justify-between items-center">
@@ -71,11 +69,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
             className="flex items-center text-[10px] font-mono font-bold uppercase tracking-[0.2em] hover:text-matrix-green transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 mr-3 group-hover:text-matrix-green" />
-            RETURN_TO_BASE
+            Back
           </motion.button>
-          <div className="font-mono text-[9px] font-bold text-gray-300 hidden md:block tracking-widest uppercase">
-            OBJECT_ID: {project.id.toUpperCase()} // STATUS: ALPHA
-          </div>
+          {!upwork && (
+            <button
+              onClick={() => openCalendly('project_nav')}
+              className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] bg-matrix-green text-off-black px-4 py-2 hover:bg-off-black hover:text-white transition-colors"
+            >
+              Book a free call
+            </button>
+          )}
         </div>
       </nav>
 
@@ -84,12 +87,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
           <div className="max-w-4xl mx-auto">
             {/* Project Hero Title Group */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mb-20"
-            >
+            <div className="mb-16">
               <div className="flex items-center gap-6 mb-10">
                 <div className="text-matrix-green p-3 bg-gray-50 rounded-lg">
                   {React.cloneElement(project.icon as React.ReactElement<any>, { size: 40, strokeWidth: 1.5 })}
@@ -111,17 +109,23 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   </span>
                 ))}
               </div>
-            </motion.div>
+
+              {project.isSample && (
+                <div className="mt-10 flex items-start gap-4 border border-gray-200 bg-gray-50 p-5">
+                  <Info className="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" />
+                  <p className="font-sans text-sm text-gray-600 leading-relaxed">
+                    <span className="font-semibold text-off-black">Practice project with sample data.</span>{' '}
+                    The company and numbers below are illustrative, built to show the method and the working file.
+                    My real, measured results (HPE, DHL, Yusen) are in my work history.
+                  </p>
+                </div>
+              )}
+            </div>
 
             {/* Content Architecture */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="lg:col-span-8 space-y-20"
-              >
+              <div className="lg:col-span-8 space-y-20">
                 {project.content.article ? (
                   <div className="article-content">
                     {project.content.article.blocks.map((block: any, idx: number) => {
@@ -164,7 +168,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     {/* Mission / Challenge */}
                     <div className="group">
                       <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-matrix-green mb-8">
-                        01 // THE_CHALLENGE
+                        The problem
                       </h3>
                       <p className="font-sans text-lg text-gray-500 leading-relaxed font-light italic border-l-2 border-gray-50 pl-8">
                         "{project.content.problem}"
@@ -174,7 +178,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     {/* Technical Overview */}
                     <div>
                       <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-matrix-green mb-8">
-                        02 // SYSTEMS_ARCHITECTURE
+                        What I built
                       </h3>
                       <p className="font-sans text-lg text-gray-600 leading-relaxed font-light">
                         {project.content.solution}
@@ -183,12 +187,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
                     {/* Impact Metrics */}
                     <div className="bg-gray-50/50 border border-gray-100 p-10 md:p-14 relative overflow-hidden group">
-                      <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-matrix-green/20 font-bold uppercase tracking-widest">
-                        ROI_CONFIRMED // IMPACT_VERIFIED
-                      </div>
                       <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-off-black mb-10 flex items-center gap-4">
                         <CheckCircle2 className="w-4 h-4 text-matrix-green" />
-                        Key Performance Indicators
+                        {project.isSample ? 'What it gives the business' : 'Results'}
                       </h3>
                       <ul className="space-y-6">
                         {project.content.impact?.map((item, idx) => (
@@ -204,24 +205,36 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   </>
                 )}
 
-              </motion.div>
+                {/* What this means for you */}
+                <div className="border-2 border-off-black p-8 md:p-10">
+                  <p className="font-mono text-lg font-bold text-off-black mb-3">Have the same problem in your business?</p>
+                  <p className="font-sans text-gray-600 font-light leading-relaxed mb-6">
+                    I can build this on your real data, usually in 1–3 weeks, and hand it over so your team keeps using it.
+                  </p>
+                  {upwork ? (
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.15em] text-off-black">
+                      Message me on Upwork to discuss your case.
+                    </p>
+                  ) : (
+                    <Button variant="primary" onClick={() => openCalendly('project_detail')}>
+                      Book a free call
+                    </Button>
+                  )}
+                </div>
+
+              </div>
 
               {/* Deployment Hub Sidebar */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="lg:col-span-4"
-              >
+              <div className="lg:col-span-4">
                 <div className="sticky top-32 bg-off-black text-[#F0F0F0] p-10 border-l-8 border-matrix-green shadow-2xl overflow-hidden relative group">
                   <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-matrix-green/5 blur-3xl rounded-full"></div>
 
                   <FileSpreadsheet className="w-12 h-12 text-matrix-green mb-8 group-hover:scale-110 transition-transform duration-500" />
                   <h4 className="font-mono text-2xl font-bold mb-4 tracking-tighter">
-                    {project.hubConfig ? project.hubConfig.title : "Dashboard Hub"}
+                    {project.hubConfig ? project.hubConfig.title : "Open the file"}
                   </h4>
                   <p className="font-sans text-xs text-gray-400 mb-10 leading-relaxed font-light tracking-wide">
-                    {project.hubConfig ? project.hubConfig.description : "Access the sanitized Excel dashboards and automated logic frameworks used in this audit."}
+                    {project.hubConfig ? project.hubConfig.description : "See the working Excel dashboard and formulas behind this project (sample data)."}
                   </p>
 
                   <motion.a
@@ -233,7 +246,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                     className="w-full bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase py-4 tracking-[0.2em] hover:bg-white transition-colors flex items-center justify-center gap-3 no-underline"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    {project.hubConfig ? project.hubConfig.buttonText : "OPEN_DASHBOARD"}
+                    {project.hubConfig ? project.hubConfig.buttonText : "Open dashboard"}
                   </motion.a>
 
                   <div className="mt-8 pt-8 border-t border-white/5 flex flex-col gap-2">
@@ -241,17 +254,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                       FORMAT: {project.hubConfig ? project.hubConfig.format : ".XLSX // .PBIX"}
                     </p>
                     <p className="text-[9px] font-mono text-gray-500 uppercase tracking-widest">
-                      METADATA: {project.hubConfig ? project.hubConfig.metadata : "SANITIZED_DATASET"}
+                      DATA: {project.hubConfig ? project.hubConfig.metadata : "SAMPLE DATASET"}
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
             </div>
           </div>
         </Section>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

@@ -21,6 +21,7 @@ export interface ExperienceItem {
   context: string;
   techStack: string[];
   achievements: Achievement[];
+  featuredNote?: string;
 }
 
 export interface ProjectArticleBlock {
@@ -56,6 +57,8 @@ export interface Project {
     };
   };
   excelUrl: string;
+  // Practice project built on sample data, not client work
+  isSample?: boolean;
   hubConfig?: {
     title: string;
     description: string;

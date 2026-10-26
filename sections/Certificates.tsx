@@ -37,11 +37,11 @@ const Certificates: React.FC = () => {
                 className="flex items-center text-[10px] font-mono font-bold uppercase tracking-[0.2em] hover:text-matrix-green transition-colors group no-underline text-gray-400"
               >
                 <ArrowLeft className="w-3.5 h-3.5 mr-3 group-hover:text-matrix-green" />
-                RETURN_TO_HOME
+                Back to home
               </Link>
             </div>
             <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6">
-              00 // CREDENTIAL_REGISTRY
+              Credentials
             </h2>
             <h1 className="font-mono text-3xl md:text-5xl font-bold tracking-tight text-off-black">
               Verified Certifications
@@ -138,7 +138,7 @@ const Certificates: React.FC = () => {
                   className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between no-underline text-off-black hover:text-matrix-green group transition-colors"
                 >
                   <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] group-hover:text-matrix-green">
-                    VERIFY_CREDENTIAL
+                    Verify
                   </span>
                   <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-matrix-green transition-colors" />
                 </a>

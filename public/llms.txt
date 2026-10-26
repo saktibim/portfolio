@@ -1,0 +1,28 @@
+# Bima Sekti (opswithbima)
+
+> Inventory and supply chain specialist based in Jakarta, Indonesia (GMT+7), working remotely worldwide. 9 years of experience, including 4.5 years in materials and order management at Hewlett Packard Enterprise (HPE). Helps growing businesses stop stockouts, fix inventory data and cut procurement waste.
+
+## Verified work results
+- Hewlett Packard Enterprise (2019–2023), Material & Order Management Specialist: recovered $90,000 in working capital by cutting pending part returns from $150K to $60K; reduced procurement lead times by 25%, production delays by 20% and excess raw material stock by 25%; 30% faster PO processing at 99.8% accuracy; 660+ SAP lines a month. SAP SD/MM, Power BI.
+- Suryanesia (2024–2025), Procurement & Logistics Specialist: procurement and logistics for 23 commercial & industrial rooftop solar projects (27 MWp), including 43,000+ panels, 210 inverters and 70+ import containers; 11% saving on mounting structures; 99.7% warehouse stock accuracy.
+- Sleep EZ Australia (2025–2026), Inventory & Supply Chain Specialist: Amazon FBA inventory for 3 brands and 39 SKUs in Australia; no stockouts through Chinese New Year factory shutdowns.
+- Yusen Logistics (2018–2019), Traffic Planner: dispatched 20 container trucks a day between Tanjung Priok Port and factories; recruited directly by HPE.
+- DHL Supply Chain (2017–2018), Inventory Analyst: 99.5%+ inventory accuracy for the Unilever account (500+ SKUs), leading a shift team of 2 checkers.
+
+## Services
+- Inventory Health Check: SKU risk list, reorder points, safety stock, data error review.
+- Operations Dashboard Build: Excel or Power BI dashboards for inventory, purchasing and supplier KPIs.
+- Procurement & Supplier Review: spend analysis, supplier OTIF scorecards, consolidation plan.
+- Also open to roles: Inventory Analyst, Supply/Demand Planner, Procurement Specialist.
+
+## Credentials
+- Lean Six Sigma Green Belt (Six Sigma Academy Amsterdam, 2024)
+- Process Improvement & Process Mapping Expert (Six Sigma Academy Amsterdam, 2024)
+- Supply Chain Management Specialization (Rutgers University via Coursera, 2024)
+- Demand Planning Management (Kaweroo Institute, 2023)
+- Bachelor of Electrical Engineering, Institut Sains & Teknologi AKPRIND
+
+## Links
+- Website: https://www.opswithbima.com/
+- LinkedIn: https://www.linkedin.com/in/bimasekti/
+- Portfolio projects (sample data, methods only): https://www.opswithbima.com/projects

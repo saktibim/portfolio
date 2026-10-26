@@ -33,10 +33,10 @@ const ExcelLab: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6">
-            03 // CASE_STUDIES
+            Portfolio
           </h2>
           <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight text-off-black">
-            Portfolio &<br /> Selected Works
+            Tools I build
           </h3>
         </motion.div>
 
@@ -47,15 +47,15 @@ const ExcelLab: React.FC = () => {
           transition={{ delay: 0.3 }}
           className="flex flex-col items-end gap-6"
         >
-          <p className="font-sans text-gray-500 max-w-sm text-right font-light leading-relaxed hidden md:block">
-            A selection of automated supply chain audits,
-            real-time ERP integrations, and business intelligence suites.
+          <p className="font-sans text-gray-500 max-w-sm md:text-right font-light leading-relaxed">
+            Practice projects built on sample data to show my methods. You can open every file.
+            My real, measured results are in the work history above.
           </p>
           <Link
             to="/projects"
             className="font-mono text-xs font-bold text-off-black uppercase tracking-[0.2em] hover:text-matrix-green transition-colors flex items-center group no-underline"
           >
-            VIEW_ALL_PROJECTS <ExternalLink className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            View all projects <ExternalLink className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>
       </div>
@@ -80,8 +80,8 @@ const ExcelLab: React.FC = () => {
               className="flex flex-col border border-gray-100 bg-gray-50/20 p-10 transition-all duration-500 hover:border-matrix-green hover:bg-white hover:shadow-[0_20px_40px_rgba(0,255,65,0.08)] cursor-pointer h-full"
             >
               {/* Project ID Tag */}
-              <div className="font-mono text-[9px] font-bold text-gray-300 absolute top-8 right-10 tracking-[0.2em] uppercase">
-                ID::{project.id.slice(0, 4)}
+              <div className="font-mono text-[9px] font-bold text-gray-400 absolute top-8 right-10 tracking-[0.2em] uppercase">
+                {project.isSample ? 'Sample data' : 'Article'}
               </div>
 
               {/* Visual Icon */}
@@ -114,7 +114,7 @@ const ExcelLab: React.FC = () => {
               {/* Interaction Layer */}
               <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
                 <span className="font-mono text-[10px] font-bold text-off-black uppercase tracking-[0.2em] group-hover:text-matrix-green transition-colors">
-                  DEPLOY_CASE_STUDY
+                  Read more
                 </span>
                 <div className="w-8 h-px bg-gray-200 group-hover:bg-matrix-green group-hover:w-12 transition-all duration-500"></div>
               </div>

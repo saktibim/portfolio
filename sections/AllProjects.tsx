@@ -37,14 +37,14 @@ const AllProjects: React.FC = () => {
                 className="flex items-center text-[10px] font-mono font-bold uppercase tracking-[0.2em] hover:text-matrix-green transition-colors group no-underline text-gray-400"
               >
                 <ArrowLeft className="w-3.5 h-3.5 mr-3 group-hover:text-matrix-green" />
-                RETURN_TO_HOME
+                Back to home
               </Link>
             </div>
             <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6">
-              00 // PROJECT_CATALOG
+              Portfolio
             </h2>
             <h1 className="font-mono text-3xl md:text-5xl font-bold tracking-tight text-off-black">
-              The Deployment Archive
+              All projects
             </h1>
           </motion.div>
 
@@ -54,8 +54,8 @@ const AllProjects: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="font-sans text-gray-500 max-w-sm text-right font-light leading-relaxed hidden md:block"
           >
-            A comprehensive catalog of operational systems, 
-            data models, and automated logic frameworks.
+            Practice projects built on sample data to show my methods,
+            plus published tutorials.
           </motion.p>
         </div>
 
@@ -78,7 +78,7 @@ const AllProjects: React.FC = () => {
                 className="flex flex-col border border-gray-100 bg-gray-50/20 p-10 transition-all duration-500 hover:border-matrix-green hover:bg-white hover:shadow-[0_20px_40px_rgba(0,255,65,0.08)] cursor-pointer h-full"
               >
                 <div className="font-mono text-[9px] font-bold text-gray-300 absolute top-8 right-10 tracking-[0.2em] uppercase">
-                  ARCHIVE::{project.id.slice(0, 4)}
+                  {project.isSample ? 'Sample data' : 'Article'}
                 </div>
 
                 <div className="mb-10 text-off-black group-hover:text-matrix-green transition-colors duration-500">
@@ -106,7 +106,7 @@ const AllProjects: React.FC = () => {
 
                 <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
                   <span className="font-mono text-[10px] font-bold text-off-black uppercase tracking-[0.2em] group-hover:text-matrix-green transition-colors">
-                    VIEW_SPECIFICATIONS
+                    Read more
                   </span>
                   <ExternalLink className="w-3.5 h-3.5 text-gray-300 group-hover:text-matrix-green transition-all" />
                 </div>

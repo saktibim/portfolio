@@ -16,9 +16,9 @@ const Experience: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] mb-6 text-gray-400">
-            02 // PROFESSIONAL_CHRONOLOGY
+            Experience
           </h2>
-          <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">Impact History</h3>
+          <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">Work history & results</h3>
         </motion.div>
       </div>
 
@@ -57,15 +57,21 @@ const Experience: React.FC = () => {
 
                 {/* Content Block */}
                 <div className="lg:col-span-9">
-                  <div className="group">
+                  <div className={`group ${role.featuredNote ? 'bg-white border-2 border-matrix-green p-6 md:p-10 shadow-[0_20px_40px_rgba(0,255,65,0.08)]' : ''}`}>
+                    {role.featuredNote && (
+                      <span className="inline-block mb-6 px-3 py-1 bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase tracking-[0.15em]">
+                        ★ {role.featuredNote}
+                      </span>
+                    )}
                     <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-8 gap-4">
                       <div>
                         <h4 className="font-mono text-2xl md:text-3xl font-bold text-off-black group-hover:text-matrix-green transition-colors tracking-tight">
                           {role.company}
                         </h4>
-                        <div className="flex items-center gap-3 mt-2 text-gray-400 font-mono text-[10px] font-bold tracking-[0.1em] uppercase">
+                        <div className="flex flex-wrap items-center gap-3 mt-2 text-gray-400 font-mono text-[10px] font-bold tracking-[0.1em] uppercase">
                           <span className="text-off-black">{role.role}</span>
                           <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+                          <span>{role.period}</span>
                         </div>
                       </div>
                     </div>
@@ -115,7 +121,7 @@ const Experience: React.FC = () => {
             className="mb-16"
           >
             <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] mb-6 text-gray-400">
-              02.5 // ACADEMICS_&_CERTIFICATES
+              Education
             </h2>
             <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">Education & Certifications</h3>
           </motion.div>
@@ -181,7 +187,7 @@ const Experience: React.FC = () => {
                   to="/certificates"
                   className="inline-flex items-center font-mono text-xs font-bold text-off-black uppercase tracking-[0.2em] hover:text-matrix-green transition-colors group no-underline"
                 >
-                  VERIFY_CREDENTIAL_REGISTRY <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Verify certificates <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </motion.div>

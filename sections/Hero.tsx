@@ -1,115 +1,115 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Button from '../components/Button';
 import Section from '../components/Section';
+import { CV_URL, HEADLINE_STATS, PHOTO_URL } from '../constants';
+import { openCalendly, trackEvent, useUpworkMode } from '../contact';
 
 const Hero: React.FC = () => {
+  const upwork = useUpworkMode();
 
   return (
-    <Section borderTop={false} className="min-h-[90vh] flex flex-col justify-center pt-32 pb-20 relative overflow-hidden">
+    <Section borderTop={false} className="pt-32 md:pt-40 pb-16 md:pb-24 relative overflow-hidden">
       {/* Background Glow Effect */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-matrix-green/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-matrix-green/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-4xl relative z-10"
-      >
-        <motion.div
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="inline-block px-3 py-1 mb-8 border border-off-black/10 font-mono text-[10px] font-bold tracking-[0.2em] bg-gray-50/50 text-gray-400 uppercase"
-        >
-          Operation Architecture // Systems Strategy
-        </motion.div>
-
-        <h1 className="font-mono text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-off-black tracking-tight">
-          Operations Analyst driving<br />
-          data-driven <span className="relative inline-block">
-            <span className="relative z-10 text-off-black">growth.</span>
-            <motion.span
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 1, duration: 0.8, ease: "circOut" }}
-              className="absolute bottom-1 left-0 w-full h-[0.3em] bg-matrix-green -z-0 origin-left"
-            />
+      <div className="max-w-5xl relative z-10 animate-fade-in">
+        <div className="flex flex-wrap items-center gap-3 mb-8">
+          <span className="inline-flex items-center gap-2 px-3 py-1 border border-matrix-green/40 bg-matrix-green/5 font-mono text-[10px] font-bold tracking-[0.15em] text-off-black uppercase">
+            <span className="w-1.5 h-1.5 bg-matrix-green rounded-full animate-pulse" />
+            Available now · Remote worldwide
           </span>
-        </h1>
+          <span className="font-mono text-[10px] font-bold tracking-[0.15em] text-gray-400 uppercase">
+            Jakarta · GMT+7
+          </span>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="font-sans text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mb-14 font-light"
-        >
-          Hi, I'm Bima. I'm a Supply Chain and Operations Specialist with over a decade of experience unraveling complex logistics and optimizing global production processes. As a certified <span className="font-semibold text-off-black">Six Sigma Green Belt</span>, I specialize in combining powerful tools like <span className="font-semibold text-off-black">SAP SD/MM and Power BI</span> to turn chaotic data into clear, cost-saving strategies. Whether it's navigating intricate Amazon FBA ecosystems, international procurement, or scaling high-volume warehouse operations, I build the systems that help businesses run smoother.
-        </motion.p>
+        <div className="flex flex-col md:flex-row md:items-start gap-8">
+          {PHOTO_URL && (
+            // The photo file has its own gold ring and white margin; zoom slightly to crop the margin
+            <div className="w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden flex-shrink-0">
+              <img
+                src={PHOTO_URL}
+                alt="Bima Sekti"
+                width={160}
+                height={160}
+                className="w-full h-full object-cover scale-[1.14]"
+              />
+            </div>
+          )}
+          <div>
+            <h1 className="font-mono text-3xl md:text-5xl font-bold leading-tight mb-6 text-off-black tracking-tight">
+              I help growing businesses stop stockouts, fix inventory data and cut{' '}
+              <span className="relative inline-block">
+                <span className="relative z-10">procurement waste.</span>
+                <span className="absolute bottom-1 left-0 w-full h-[0.3em] bg-matrix-green -z-0" />
+              </span>
+            </h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-          className="flex flex-col sm:flex-row gap-5 mb-20"
-        >
-          <Button variant="primary" href="#skills" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transition-all">
-            VIEW SKILLS
+            <p className="font-sans text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mb-10 font-light">
+              Hi, I'm Bima, a supply chain and inventory specialist with 9 years of experience, including{' '}
+              <span className="font-semibold text-off-black">4.5 years running materials & order management at Hewlett Packard Enterprise</span>.
+              I bring enterprise discipline (<span className="font-semibold text-off-black">SAP MM/SD, Lean Six Sigma Green Belt, Power BI</span>)
+              to teams that still run on spreadsheets.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 mb-14">
+          {upwork ? (
+            <Button variant="primary" href="#lab" className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+              See my work
+            </Button>
+          ) : (
+            <Button
+              variant="primary"
+              onClick={() => openCalendly('hero')}
+              className="px-8 py-4 text-sm font-bold tracking-wide shadow-[4px_4px_0px_rgba(0,0,0,1)]"
+            >
+              Book a free call
+            </Button>
+          )}
+          <Button variant="outline" href="#services" className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black">
+            How I can help
           </Button>
-          <Button
-            variant="outline"
-            href="#lab"
-            className="px-8 py-4 text-sm font-bold tracking-wide border-off-black text-off-black hover:bg-off-black hover:text-white transition-all"
-          >
-            SEE CASE STUDIES
-          </Button>
-        </motion.div>
+          {CV_URL && (
+            <Button
+              variant="text"
+              href={CV_URL}
+              onClick={() => trackEvent('cv_downloaded')}
+              className="py-4 text-sm font-bold"
+            >
+              Download CV
+            </Button>
+          )}
+        </div>
+
+        {/* Proof: real results from employment */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100 mb-12">
+          {HEADLINE_STATS.map((stat) => (
+            <div key={stat.label} className="bg-white p-5 md:p-6">
+              <p className="font-mono text-2xl md:text-3xl font-bold text-off-black mb-2">{stat.value}</p>
+              <p className="font-sans text-sm text-gray-600 leading-snug mb-2">{stat.label}</p>
+              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-gray-400">{stat.source}</p>
+            </div>
+          ))}
+        </div>
 
         {/* Social Proof Logos */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="pt-10 border-t border-gray-100"
-        >
-          <p className="font-mono text-[9px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-8">
-            Experience Delivering Results At:
+        <div className="pt-8 border-t border-gray-100">
+          <p className="font-mono text-[9px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-6">
+            Experience at
           </p>
-          <div className="flex flex-wrap items-center gap-x-12 gap-y-8 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-            {/* HPE */}
-            <div className="flex items-baseline gap-1">
-              <span className="font-sans font-bold text-lg tracking-tight text-[#01A982]">HEWLETT PACKARD ENTERPRISE</span>
-            </div>
-
-            {/* DHL */}
-            <div className="flex items-baseline">
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
+            <span className="font-sans font-bold text-lg tracking-tight text-[#01A982]">HEWLETT PACKARD ENTERPRISE</span>
+            <div className="flex items-baseline opacity-70">
               <span className="font-sans italic font-black text-2xl tracking-tighter text-[#D40511]">DHL</span>
               <span className="font-sans italic font-bold text-[9px] ml-1 text-gray-400">SUPPLY CHAIN</span>
             </div>
-
-            {/* Yusen */}
-            <div className="flex items-baseline gap-2">
-              <span className="font-sans font-extrabold text-xl tracking-tight text-[#1e3a8a]">YUSEN LOGISTICS</span>
-            </div>
+            <span className="font-sans font-extrabold text-xl tracking-tight text-[#1e3a8a] opacity-70">YUSEN LOGISTICS</span>
           </div>
-        </motion.div>
-      </motion.div>
-
-      {/* Decorative technical specs */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.4 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-10 right-6 md:right-12 lg:right-24 font-mono text-[10px] text-gray-400 text-right hidden md:block leading-loose"
-      >
-        <p className="tracking-widest">LOC: 6°12'31.7"S 106°50'44.2"E</p>
-        <p className="tracking-widest">REGION: SE-ASIA // JKT</p>
-        <p className="tracking-widest">SYSTEM_STATUS: <span className="text-matrix-green">OPTIMAL</span></p>
-        <p className="tracking-widest flex items-center justify-end gap-2">
-          PING: <span className="inline-block w-8 h-px bg-gray-300"></span> 24MS
-        </p>
-      </motion.div>
+        </div>
+      </div>
     </Section>
   );
 };

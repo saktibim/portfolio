@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -9,6 +8,7 @@ interface SectionProps {
   borderBottom?: boolean;
 }
 
+// Plain <section>: a whole-section fade kept content invisible for seconds on first load.
 const Section: React.FC<SectionProps> = ({
   children,
   className = '',
@@ -17,12 +17,8 @@ const Section: React.FC<SectionProps> = ({
   borderBottom = false
 }) => {
   return (
-    <motion.section
-      id={id}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
+    <section
+      id={id || undefined}
       className={`relative w-full py-20 md:py-32 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto ${borderTop ? 'border-t border-gray-100' : ''} ${borderBottom ? 'border-b border-gray-100' : ''} ${className}`}
     >
       {/* Decorative vertical guide */}
@@ -31,7 +27,7 @@ const Section: React.FC<SectionProps> = ({
       <div className="relative z-10 w-full">
         {children}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

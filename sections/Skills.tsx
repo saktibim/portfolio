@@ -32,23 +32,12 @@ const Skills: React.FC = () => {
   return (
     <Section id="skills" className="bg-white">
       <div className="mb-20">
-        <motion.h2 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6"
-        >
-          01 // CORE_COMPETENCIES
-        </motion.h2>
-        <motion.h3 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="font-mono text-3xl md:text-4xl font-bold tracking-tight text-off-black"
-        >
-          Technical Skills &<br />Domain Expertise
-        </motion.h3>
+        <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-6">
+          Skills
+        </h2>
+        <h3 className="font-mono text-3xl md:text-4xl font-bold tracking-tight text-off-black">
+          Tools & expertise
+        </h3>
       </div>
 
       <motion.div 

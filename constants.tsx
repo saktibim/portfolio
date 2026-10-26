@@ -11,13 +11,64 @@ import {
 } from 'lucide-react';
 
 export const CALENDLY_URL = "https://calendly.com/opswithbima/30min?background_color=00ff6f&text_color=000000&primary_color=ffffff";
+export const CONTACT_EMAIL = "opswithbima@gmail.com";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/bimasekti/";
+// Put the files in /public and set the paths, e.g. "/Bima-Sekti-CV.pdf" and "/bima.jpg". Empty = hidden.
+export const CV_URL = "";
+export const PHOTO_URL = "/bima.png";
+
+export const HEADLINE_STATS = [
+  { value: '$90K', label: 'Capital recovered from pending part returns', source: 'HPE' },
+  { value: '−25%', label: 'Procurement lead time', source: 'HPE' },
+  { value: '23', label: 'Solar projects supplied (27 MWp)', source: 'Suryanesia' },
+  { value: '99.5%', label: 'Inventory accuracy, 500+ SKUs', source: 'DHL · Unilever warehouse' },
+];
+
+export const SERVICES = [
+  {
+    id: 'inventory-health-check',
+    name: 'Inventory Health Check',
+    pain: 'Stockouts on best-sellers, cash stuck in slow stock, numbers you don\'t trust.',
+    deliverables: [
+      'SKU-by-SKU risk list (stockout, overstock, dead stock)',
+      'Reorder points and safety stock for your top SKUs',
+      'Stock data errors found and explained',
+      '1-page action plan',
+    ],
+    timeline: 'Typically 1 week',
+  },
+  {
+    id: 'ops-dashboard',
+    name: 'Operations Dashboard Build',
+    pain: 'Reports built by hand every week, and still no clear view of stock, orders or suppliers.',
+    deliverables: [
+      'Excel or Power BI dashboard on your real data',
+      'Inventory, purchasing and supplier KPIs in one view',
+      'Simple refresh steps your team can run',
+      'Walkthrough call + handover notes',
+    ],
+    timeline: 'Typically 1–3 weeks',
+  },
+  {
+    id: 'procurement-review',
+    name: 'Procurement & Supplier Review',
+    pain: 'Late suppliers, scattered spend, and no data to negotiate with.',
+    deliverables: [
+      'Spend grouped by category and supplier',
+      'Supplier scorecard (on-time, in-full, lead time)',
+      'Where to consolidate and what to renegotiate',
+      'Purchase order process fixes',
+    ],
+    timeline: 'Typically 2 weeks',
+  },
+];
 
 export const SKILLS: Skill[] = [
   {
     id: 'tech',
     category: 'Technical Skills',
     title: 'Systems & Data Tools',
-    tools: ['SAP (SD & MM)', 'Power BI (DAX, Dashboards)', 'MRP Systems', 'Amazon Seller Central (FBA)', 'Advanced Excel (INDEX-MATCH, Pivot Tables)']
+    tools: ['SAP (SD & MM)', 'Power BI (DAX, Dashboards)', 'MRP Systems', 'Amazon Seller Central (FBA)', 'Advanced Excel (INDEX-MATCH, Pivot Tables)', 'ClickUp & Asana']
   },
   {
     id: 'ops-excellence',
@@ -29,7 +80,7 @@ export const SKILLS: Skill[] = [
     id: 'strategic',
     category: 'Strategic Management',
     title: 'Leadership & Procurement',
-    tools: ['Global Procurement', 'Contract Negotiation', 'Supplier Relationship Management (SRM)', 'New Product Introduction (NPI)']
+    tools: ['Project & EPC Procurement', 'Import Logistics & Freight Planning', 'TKDN Local-Content Sourcing', 'Contract Negotiation', 'Supplier Relationship Management (SRM)']
   }
 ];
 
@@ -38,26 +89,30 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     id: 'sleepez',
     company: 'Sleep EZ Australia',
     role: 'Inventory & Supply Chain Specialist',
-    period: '08/2025 — 12/2025',
-    headline: 'Global Inventory & Backend Amazon FBA Optimization.',
-    context: 'Streamlined global inventory replenishment and enhanced brand operations across three international markets.',
-    techStack: ['Amazon FBA', 'Inventory Planning', 'Brand Strategy'],
+    period: '08/2025 — 01/2026',
+    headline: 'Amazon FBA inventory for a 3-brand, 39-SKU portfolio (AU market).',
+    context: 'Kept best-sellers in stock and FBA operations running for SleepEZ, Airspire and Swisho, working with suppliers in China and a remote team across 4 locations.',
+    techStack: ['Amazon FBA', 'Seller Central', 'Inventory Planning', 'Asana'],
     achievements: [
       {
-        title: 'Inventory Assurance',
-        description: 'Streamlined global inventory replenishment by monitoring stock levels for high-velocity SKUs (Mouth Tape, Nasal Strips), ensuring 0% stock-out rates during critical production shutdowns.'
-      },
-      {
-        title: 'Brand Equity',
-        description: 'Enhanced brand equity across 3 international markets by auditing creative assets and establishing distinct brand voices for Airspire and SleepEZ to prevent brand cannibalization.'
+        title: 'Zero Shutdown Stockouts',
+        description: 'Ran velocity analysis and buffer-stock plans ahead of Chinese New Year factory shutdowns, with no stockouts on high-velocity SKUs (Mouth Tape, Nasal Strips).'
       },
       {
         title: 'FBA Issue Resolution',
-        description: 'Resolved 100% of complex Amazon FBA backend discrepancies, including stuck orders and reimbursement escalations, through systematic operational problem-solving.'
+        description: 'Handled daily FBA backend work across 39 SKUs: inventory reconciliations, stuck orders and reimbursement claims.'
       },
       {
-        title: 'Content Optimization',
-        description: 'Optimized Amazon A+ Content for multiple product lines, utilizing a consumer-centric benefit ranking to improve conversion rates and feature hierarchy.'
+        title: 'Inbound Replenishment',
+        description: 'Tracked supplier lead times from China to Amazon FBA warehouses and sized shipments to balance storage fees against availability.'
+      },
+      {
+        title: 'Remote Team Coordination',
+        description: 'Ran day-to-day operations with a remote team across 4 locations (Bali, Tangerang, Bandung, China), keeping suppliers, designers, copywriters, UGC creators and logistics on one Asana workflow.'
+      },
+      {
+        title: 'Listings & Launches',
+        description: 'Built Amazon A+ Content for several product lines and coordinated product launches from factory to listing.'
       }
     ]
   },
@@ -65,26 +120,30 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     id: 'suryanesia',
     company: 'Suryanesia',
     role: 'Procurement & Logistics Specialist',
-    period: '08/2024 — 09/2025',
-    headline: 'Strategic Sourcing & Warehouse Orchestration.',
-    context: 'Handled high-value contracts and comprehensive logistics for solar and energy project operations.',
-    techStack: ['Contract Negotiation', 'Project Logistics', 'Demand Planning'],
+    period: '08/2024 — 08/2025',
+    headline: 'Procurement & logistics for 23 commercial & industrial solar projects (27 MWp).',
+    context: 'Sourced, shipped and stored the equipment for rooftop solar installations at industrial factories across Java, from Tier-1 manufacturers and local TKDN suppliers.',
+    techStack: ['EPC Procurement', 'Import Logistics', 'TKDN', 'ClickUp', 'Power BI'],
     achievements: [
       {
-        title: 'Cost Reduction',
-        description: 'Reduced project overhead costs by sourcing and negotiating high-value contracts for materials, logistics, and warehouse equipment rentals.'
+        title: 'Equipment Sourcing',
+        description: 'Ran RFQs, negotiations and purchase orders for 43,000+ solar panels, 210 inverters and mounting structures, combining Tier-1 imports with local TKDN suppliers.'
       },
       {
-        title: 'Vendor Management',
-        description: 'Ensured 100% project uptime by managing supplier and trucking vendor relationships and monitoring real-time performance metrics.'
+        title: 'Supplier Savings',
+        description: 'Compared terms, warranties and prices across a 3-vendor mounting-structure network, cutting that cost by 11%.'
       },
       {
-        title: 'Operations',
-        description: 'Orchestrated end-to-end warehouse operations, including inbound/outbound logistics and safety monitoring, to support continuous project execution.'
+        title: 'Freight Planning',
+        description: 'Designed a 2-tier truck loading plan (496 panels per truck) and coordinated 88 truck dispatches and 70+ import containers to project sites.'
       },
       {
-        title: 'Demand Planning',
-        description: 'Improved forecast accuracy by collaborating with project teams to streamline supply chain processes and demand planning.'
+        title: 'Warehouse Control',
+        description: 'Sole warehouse keyholder for project materials: receiving, storage, dispatch and cycle counts, with 99.7% stock accuracy.'
+      },
+      {
+        title: 'Site Readiness',
+        description: 'Tracked supplier lead times against construction schedules in ClickUp so equipment, tools and safety gear (PPE) arrived before crews mobilized, cutting delivery lead-time variance by 15%.'
       }
     ]
   },
@@ -93,29 +152,34 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'Hewlett Packard Enterprise (HPE)',
     role: 'Material & Order Management Specialist',
     period: '03/2019 — 08/2023',
-    headline: 'Materials Management & Order Processing Efficiency.',
-    context: 'Spearheaded robust stock control and data-driven initiatives leveraging SAP MM and Power BI.',
-    techStack: ['SAP MM', 'Power BI', 'Demand Forecasting'],
+    headline: 'Materials and order management for enterprise server components.',
+    context: 'Processed 660+ SAP lines a month and supported parts availability for Sales, Field Engineers, Delivery Managers and 3PL warehouses, including 24-hour standby for urgent spare parts.',
+    techStack: ['SAP SD/MM', 'Power BI', 'Advanced Excel', 'MRP'],
+    featuredNote: 'Longest role · 4.5 years at a Fortune 500 company',
     achievements: [
       {
-        title: 'Production Continuity',
-        description: 'Decreased production delays by 20% by spearheading demand forecasting initiatives and implementing a robust stock control system using SAP MM.'
+        title: 'Capital Recovery',
+        description: 'Built a return-tracking process with Field Engineers and Delivery Managers that cut pending part returns from $150,000 to $60,000, recovering $90,000 in working capital.'
       },
       {
         title: 'Lead Time Reduction',
-        description: 'Reduced procurement lead times by 25% by establishing strategic supplier relationships and negotiating favorable payment and delivery terms.'
+        description: 'Reduced procurement lead times by 25% by working closely with suppliers and negotiating better payment and delivery terms.'
       },
       {
-        title: 'Process Optimization',
-        description: 'Achieved 30% improvement in order processing efficiency by designing and implementing a streamlined Purchase Order (PO) system.'
+        title: 'Production Continuity',
+        description: 'Reduced production delays by 20% by tuning reorder points and safety stock with 3PL warehouse partners in SAP MM.'
       },
       {
-        title: 'Waste Elimination',
-        description: 'Eliminated 25% of excess raw material stock through the implementation of a data-driven stock control system.'
+        title: 'Order Processing',
+        description: 'Made purchase order processing 30% faster with a streamlined PO workflow, keeping 99.8% transaction accuracy.'
       },
       {
-        title: 'Business Intelligence',
-        description: 'Facilitated data-driven decision-making by developing comprehensive Power BI dashboards to track KPI performance across the organization.'
+        title: 'Excess Stock',
+        description: 'Cut excess raw material stock by 25% using a data-driven stock control model in Excel and SAP.'
+      },
+      {
+        title: 'Reporting',
+        description: 'Built Excel tracking models and Power BI reports for part availability, usage velocity and supplier lead times.'
       }
     ]
   },
@@ -124,21 +188,21 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'Yusen Logistics',
     role: 'Traffic Planner',
     period: '11/2018 — 03/2019',
-    headline: 'Logistics Orchestration & Route Optimization.',
-    context: 'Enhanced transportation networks to minimize costs and improve scheduling metrics.',
-    techStack: ['Route Optimization', 'Traffic Management'],
+    headline: 'Port-to-factory container transport, Tanjung Priok to Jabodetabek.',
+    context: 'Planned and tracked daily container trucking for industrial raw materials. Recruited directly by Hewlett Packard Enterprise from this role.',
+    techStack: ['TMS', 'GPS Tracking', 'Fleet Dispatch'],
     achievements: [
       {
-        title: 'Cost Efficiency',
-        description: 'Lowered fuel costs and transit times by 20% by optimizing daily transportation routes and delivery schedules.'
+        title: 'Fleet Dispatch',
+        description: 'Scheduled and dispatched 20 container trucks a day between Tanjung Priok Port and manufacturing plants.'
       },
       {
-        title: 'Visibility Control',
-        description: 'Boosted delivery visibility by implementing real-time tracking systems, significantly reducing customer-reported delays.'
+        title: 'Live Tracking',
+        description: 'Kept the Transport Management System up to date and monitored GPS tracking to catch delays early.'
       },
       {
-        title: 'Process Flow',
-        description: 'Increased transportation efficiency by 15% through cross-functional collaboration to eliminate bottlenecks in traffic management.'
+        title: 'Customer Updates',
+        description: 'Sent clients real-time delivery status and proactive delay updates for port clearance and highway bottlenecks.'
       }
     ]
   },
@@ -147,21 +211,25 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'DHL Supply Chain',
     role: 'Inventory Analyst',
     period: '01/2017 — 11/2018',
-    headline: 'Precision Warehouse Operations & Inventory Integrity.',
-    context: 'Maintained advanced FIFO protocols and strict compliance in a high-volume FMCG setting.',
-    techStack: ['WMS', 'FIFO', 'Compliance Audits'],
+    headline: 'Inventory control for the Unilever account, 500+ FMCG SKUs.',
+    context: 'Led shift inventory control at DHL Multi-User Facility 2 (Bekasi) with a team of 2 inventory checkers.',
+    techStack: ['SAP', 'WMS', 'Advanced Excel', 'FIFO & 5S'],
     achievements: [
       {
-        title: 'Stock Integrity',
-        description: 'Maintained 99.5% inventory accuracy for a high-volume FMCG warehouse (Unilever) managing over 500 unique SKUs.'
+        title: 'Stock Accuracy',
+        description: 'Kept physical-to-system inventory accuracy at 99.5%+ across 500+ fast-moving Unilever SKUs.'
       },
       {
-        title: 'Protocol Implementation',
-        description: 'Reduced stock discrepancies by 10% by leading a team to implement advanced inventory management and FIFO protocols.'
+        title: 'Cycle Counts',
+        description: 'Ran daily cycle counts with 2 checkers and reconciled differences between WMS and SAP before each shift handover.'
       },
       {
-        title: 'Audit Compliance',
-        description: 'Increased audit scores by 20% through the execution of regular random cycle counts and adherence to corporate compliance standards.'
+        title: 'Occupancy Dashboard',
+        description: 'Built and updated a daily warehouse occupancy dashboard in Excel to track rack capacity and space use.'
+      },
+      {
+        title: 'Root Cause Fixes',
+        description: 'Investigated stock variances and enforced FIFO and 5S standards to stop recurring mismatches.'
       }
     ]
   }
@@ -178,12 +246,13 @@ export const PROJECTS: Project[] = [
       problem: "In global trade, shipping rates fluctuate constantly based on Zones and Service Levels. Most professionals rely on static VLOOKUPs, which only search vertically. If a shipping manager needs to switch from \"Standard\" to \"Express,\" they have to manually rewrite the formula, risking errors and delays.",
       solution: "I developed an automated 2-Way INDEX & MATCH system that acts as a \"GPS coordinate\" logic for pricing. Using a matrix of 20 shipping zones and 5 service levels, I implemented Data Validation drop-downs to prevent typos. The system retrieves the exact shipping rate by finding the intersection of the selected row (Zone) and column (Service Level), then calculates total cost by multiplying against the shipment weight.",
       impact: [
-        "Reduce Quote Time: Accelerated complex freight quoting from minutes to seconds.",
-        "Zero Typos: Automated data retrieval ensures 100% accuracy in pricing.",
-        "Scalability: New zones or service levels can be added to the source data without ever touching the lookup formula."
+        "Faster quotes: a freight quote takes seconds instead of a manual table search.",
+        "Fewer pricing errors: drop-down inputs and a single lookup remove typing mistakes.",
+        "Easy to maintain: new zones or service levels are added to the rate table without touching the formula."
       ]
     },
-    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQCeqKcDBz-aRbMnjg1tESl_AQcbUniXLxnxrZEZ1fsUtFU?e=KooVwM"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQCeqKcDBz-aRbMnjg1tESl_AQcbUniXLxnxrZEZ1fsUtFU?e=KooVwM",
+    isSample: true
   },
   {
     id: 'procurement',
@@ -192,15 +261,16 @@ export const PROJECTS: Project[] = [
     description: 'Categorized global unmanaged spend to unlock immediate visibility and identify significant cost-saving opportunities.',
     icon: <Coins className="w-6 h-6" />,
     content: {
-      problem: "The organization lacked a clear view of where capital was being allocated across various departments. Fragmented purchasing and a lack of vendor classification made it impossible to identify waste or negotiate volume discounts. This \"dark spend\" created a significant drain on company margins.",
-      solution: "I performed a comprehensive audit of raw transaction data to categorize all unmanaged spend. By normalizing vendor data and mapping costs to specific categories, I built a Spend Map to visualize expenditure patterns. This process allowed for the identification of non-essential costs and budget overlaps. The analysis revealed that 20% of the total expenditure was distributed across hundreds of small, non-contracted vendors—\"maverick spend\" that was significantly more expensive than consolidated purchasing.",
+      problem: "Scenario: a growing company has no clear view of where its purchasing money goes. Purchases are spread across departments and vendors are not classified, so waste is invisible and there is no basis for volume discounts.",
+      solution: "I audited the raw transaction data and categorized all unmanaged spend. After normalizing vendor names and mapping each cost to a category, I built a Spend Map that shows where the money goes. In the sample dataset, about 20% of spend was spread across many small, non-contracted vendors (\"maverick spend\"), which is usually more expensive than consolidated purchasing.",
       impact: [
-        "Identified Savings: Uncovered over $12,000 in potential annual savings through vendor consolidation and contract renegotiation.",
-        "Spend Control: Established a preferred vendor list to standardize purchasing and prevent unauthorized expenditures.",
-        "Real-Time Monitoring: Developed a permanent spending dashboard that provides leadership with 100% visibility into monthly budget adherence."
+        "Savings targets: the model sizes the potential saving from vendor consolidation and renegotiation (about $12,000/year in the sample data).",
+        "Spend control: the output feeds a preferred-vendor list to standardize purchasing.",
+        "Ongoing visibility: a monthly spend dashboard shows budget vs. actual by category."
       ]
     },
-    excelUrl: "https://docs.google.com/spreadsheets/d/1K0Ocy4Hpmkc0mjTSYuBG0wIxeFVRTBn9jE6ph25fIrE/edit?usp=sharing"
+    excelUrl: "https://docs.google.com/spreadsheets/d/1K0Ocy4Hpmkc0mjTSYuBG0wIxeFVRTBn9jE6ph25fIrE/edit?usp=sharing",
+    isSample: true
   },
   {
     id: 'inventory',
@@ -209,15 +279,16 @@ export const PROJECTS: Project[] = [
     description: 'Built a dynamic dashboard to monitor high-risk SKUs and predict stockout probabilities, preventing lost sales.',
     icon: <Package className="w-6 h-6" />,
     content: {
-      problem: "Inventory is the largest capital expense and the biggest operational risk. We were struggling with fragmented stock data across Amazon and Shopify, leading to \"blind spots\" where high-demand products would sell out unexpectedly, resulting in lost revenue and penalization from marketplace algorithms.",
-      solution: "I developed a centralized Inventory Command Center to monitor $19,177.00 in total inventory value. Using conditional logic and data normalization, I engineered two critical safety metrics: Stockout Probability % (a predictive calculation for depletion risks) and Dynamic Reorder Alerts (automated status tags like HEALTHY, REORDER NOW, OUT OF STOCK). The audit immediately flagged six SKUs at high risk—specifically the 'Powerbank' line, which showed a >30% stockout probability despite appearing stable in raw counts—preventing a major fulfillment failure during a peak Australian sales period.",
+      problem: "Scenario: an e-commerce brand selling on Amazon and Shopify has stock data split across channels. High-demand products sell out without warning, which loses revenue and hurts marketplace ranking.",
+      solution: "I built a centralized Inventory Command Center for a sample catalog worth $19,177 in stock. It calculates two safety metrics: Stockout Probability % (how likely each SKU is to run out) and Reorder Alerts (status tags like HEALTHY, REORDER NOW, OUT OF STOCK). On the sample data it flagged six high-risk SKUs, including a 'Powerbank' line with a >30% stockout probability that looked fine in raw stock counts.",
       impact: [
-        "Revenue Protection: By identifying the six at-risk SKUs, we successfully prioritized inbound shipments, protecting roughly $5,000+ in potential weekly revenue.",
-        "Interactive Oversight: Implemented Marketplace Slicers, allowing the CEO to toggle between regions and instantly see which products are draining cash or generating profit.",
-        "Operational Discipline: Transitioned from \"reactive\" ordering to a \"proactive\" cycle, ensuring our top-performing products maintain a 98%+ in-stock rate."
+        "Early warning: at-risk SKUs are flagged before they sell out, so inbound shipments can be prioritized.",
+        "One view for the owner: marketplace slicers show which products and regions tie up cash or drive profit.",
+        "Proactive ordering: reorder alerts replace guesswork with a weekly, rules-based restock routine."
       ]
     },
-    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQDSbEdSeBlKRI9JzZ8yRjxBAdHjmF67D4t-iE3N5kn99Yc?e=gpw2A9"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQDSbEdSeBlKRI9JzZ8yRjxBAdHjmF67D4t-iE3N5kn99Yc?e=gpw2A9",
+    isSample: true
   },
   {
     id: 'supplier',
@@ -226,15 +297,16 @@ export const PROJECTS: Project[] = [
     description: 'Replaced anecdotal feedback with data-driven scorecards, ranking suppliers by On-Time In-Full (OTIF) performance.',
     icon: <Handshake className="w-6 h-6" />,
     content: {
-      problem: "In a global supply chain, relying on \"gut feelings\" about supplier performance is an operational risk. We were facing inconsistent lead times and quality issues, but without a centralized audit, we couldn't differentiate between a one-time delay and a systemic vendor failure. This lack of transparency led to stockouts and unnecessary expedited shipping costs to cover for late arrivals.",
-      solution: "I developed a data-driven Supplier Reliability Scorecard to move from anecdotal feedback to objective ranking. The model prioritized OTIF (On-Time In-Full) as the primary reliability driver, while penalizing \"Days Late\" based on severity. The audit exposed a massive performance gap: while the top-tier vendor achieved an 89% score, the bottom vendor was flagged as a Critical Risk with a 63% score (driven by a 2.9-day average delay per shipment). This visualization enabled management to immediately initiate a vendor consolidation strategy, shifting volume toward high-reliability partners.",
+      problem: "Scenario: a company judges suppliers on gut feeling. Lead times and quality vary, but without a central record nobody can tell a one-off delay from a supplier that is always late, so the business pays for stockouts and expedited shipping.",
+      solution: "I built a Supplier Reliability Scorecard that ranks suppliers objectively. OTIF (On-Time In-Full) is the main driver, and late deliveries are penalized by how many days late they are. In the sample data the gap was large: the best supplier scored 89%, while the worst scored 63% and was flagged as a critical risk, with an average delay of 2.9 days per shipment.",
       impact: [
-        "Strategic Procurement: Automated the identification of \"Preferred Vendors\" using a color-coded dashboard (Green for >80%, Red for <65%).",
-        "Improved Fill Rates: By holding vendors accountable to the 53% Global OTIF benchmark, we pressured low-performers to improve their logistics or face contract termination.",
-        "Lead Time Accuracy: Reduced unexpected delays by integrating historical performance data into our demand forecasting, ensuring more realistic reorder points."
+        "Preferred suppliers at a glance: a color-coded dashboard (green above 80%, red below 65%).",
+        "Fact-based supplier conversations: low performers see their own OTIF and delay data.",
+        "Better reorder points: real supplier lead times feed the demand plan instead of quoted ones."
       ]
     },
-    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQBblaO3MVfMTa3N5S9d1Q0QAZ1c2KAl6L7ib3HPdTuI-FU?e=rfIQa3"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQBblaO3MVfMTa3N5S9d1Q0QAZ1c2KAl6L7ib3HPdTuI-FU?e=rfIQa3",
+    isSample: true
   },
   {
     id: 'logistics',
@@ -243,15 +315,16 @@ export const PROJECTS: Project[] = [
     description: 'Analyzed weight-vs-cost data to identify "expedited waste" and optimize Air vs. Sea freight mode selection.',
     icon: <Truck className="w-6 h-6" />,
     content: {
-      problem: "At Lumina Lighting, we were using Air Freight as a 'band-aid' for poor inventory planning. Without a clear policy, heavy shipments were being flown globally, resulting in massive 'Expedited Waste' that destroyed product margins.",
-      solution: "I built a diagnostic scatter plot mapping Shipment Weight vs. Total Cost using #N/A logic to separate data clusters. This revealed a critical 'Danger Zone' starting at 150 KG where Air costs scaled exponentially compared to Sea. I then normalized the data to track Cost per KG benchmarks across all major shipping lanes (AU, UK, USA).",
+      problem: "Scenario: a fictional lighting brand (\"Lumina Lighting\") uses air freight to cover for poor inventory planning. With no policy in place, heavy shipments are flown worldwide and expedited costs eat the product margin.",
+      solution: "I built a scatter plot of Shipment Weight vs. Total Cost, using #N/A logic to separate the air and sea clusters. It shows a 'danger zone' from about 150 KG, where air cost rises much faster than sea. I then normalized the data into Cost per KG benchmarks for each shipping lane (AU, UK, USA).",
       impact: [
-        "New SOP: Any shipment exceeding 150 KG now defaults to Sea Freight unless it has direct CEO approval.",
-        "Recovered Margin: Turned hidden 'Expedited Waste' into a measurable KPI, forcing improved lead-time planning over last-minute flights.",
-        "Negotiation Power: We now use the Cost per KG benchmarks to audit carrier quotes and drive more aggressive procurement."
+        "Clear policy: shipments above 150 KG default to sea freight unless approved.",
+        "Visible waste: expedited freight becomes a tracked KPI instead of a hidden cost.",
+        "Stronger negotiation: Cost per KG benchmarks are used to check carrier quotes."
       ]
     },
-    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQBbPqhOMyMmS4mzbV-VYCURARMvVoQZo2nURpv5hLGHsvs?e=EgOQ83"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQBbPqhOMyMmS4mzbV-VYCURARMvVoQZo2nURpv5hLGHsvs?e=EgOQ83",
+    isSample: true
   },
   {
     id: 'sales',
@@ -260,15 +333,16 @@ export const PROJECTS: Project[] = [
     description: 'Unified Amazon & Shopify data to track Total Advertising Cost of Sales (TACoS), ensuring profitable scaling.',
     icon: <TrendingUp className="w-6 h-6" />,
     content: {
-      problem: "Scaling an e-commerce business across multiple channels like Amazon and Shopify creates a \"data fragmentation\" problem. We were seeing top-line revenue growth, but without a unified view of advertising spend and platform fees, it was impossible to tell if that growth was actually profitable. Managing separate silos led to over-investing in low-margin products and missing the \"True Profit\" of our marketing efforts.",
-      solution: "I engineered a centralized E-commerce Command Center to aggregate sales and marketing data into a single source of truth. I implemented a specialized metric to audit our scaling efficiency: TACoS (Total Advertising Cost of Sales), calculated as (Total Ad Spend / Total Revenue), which provides a \"Sanity Check\" that standard ACoS misses. I used Excel to harmonize different reporting formats from Amazon AU, USA, and UK into a standardized global dashboard. The audit revealed a global TACoS of 23.7%, signaling that we were in a healthy scaling phase but approaching a point of diminishing returns in certain regions.",
+      problem: "Scenario: a brand selling on Amazon and Shopify sees revenue growing, but ad spend and platform fees sit in separate reports. Nobody can tell whether the growth is profitable, so money keeps going into low-margin products.",
+      solution: "I built an E-commerce Command Center that combines sales and advertising data into one source of truth. It tracks TACoS (Total Advertising Cost of Sales = total ad spend / total revenue), which catches problems that standard ACoS misses. Excel harmonizes the different Amazon AU, USA and UK report formats into one dashboard. On the sample data (about $68,900 sales and $16,300 ad spend), global TACoS is 23.7%: healthy, but close to diminishing returns in some regions.",
       impact: [
-        "Strategic Budget Reallocation: Shifted ad spend away from low-margin items that were \"cannibalizing\" organic sales and moved it toward high-contribution-margin SKUs.",
-        "Global Visibility: Created a real-time monitor for the CEO to track total sales (e.g., $68,893.00) and ad spend (e.g., $16,333.00) across all geographic markets in a single view.",
-        "Data-Driven Growth: Established a permanent feedback loop between marketing and supply chain, ensuring that we only \"turn on the taps\" for advertising when inventory health audits confirm sufficient stock levels."
+        "Smarter ad budget: shows which low-margin items to cut and which high-margin SKUs to push.",
+        "One view of all markets: total sales and ad spend by region on a single page.",
+        "Ads linked to stock: advertising is only scaled up when inventory health confirms enough stock."
       ]
     },
-    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQCmPe1TfRWqRYAdTS3TJg8MARww3Q27bHy8qnAxMgu4XtI?e=4XPyad"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQCmPe1TfRWqRYAdTS3TJg8MARww3Q27bHy8qnAxMgu4XtI?e=4XPyad",
+    isSample: true
   },
   {
     id: 'warehouse',
@@ -277,14 +351,15 @@ export const PROJECTS: Project[] = [
     description: 'Audited picking speed against accuracy to identify process bottlenecks and reduce costly shipping errors.',
     icon: <Warehouse className="w-6 h-6" />,
     content: {
-      problem: "At Lumina Lighting, \"fast\" shipping was being prioritized over \"correct\" shipping. As a first-time leader, I identified that while our pickers were meeting raw speed targets, our rework costs were spiking due to high error rates. Shipping a single wrong item costs the business 3x the original labor in returns and customer service.",
-      solution: "I implemented a Six Sigma audit to track the Efficiency-Quality Paradox. I built a custom monitoring engine using three specific logic formulas: Pick Cycle Time to normalize time into minutes, Accuracy Rate as a binary IF(Errors = 0, 1, 0) \"First Pass Yield\" metric, and Productivity (Items/Cycle Time). The audit exposed Picker P-04 as a major operational liability—maintaining target speed but with a disastrous 33% accuracy rate—while P-03 was accurate but 55% slower than goal, pinpointing bottleneck sources.",
+      problem: "Scenario: in a fictional brand's warehouse (\"Lumina Lighting\"), pickers are measured on speed, not accuracy. They hit their speed targets, but picking errors drive up returns and rework, and every wrong item costs far more than picking it right the first time.",
+      solution: "I set up a Six Sigma style audit of speed vs. quality. The tracker uses three formulas: Pick Cycle Time (in minutes), Accuracy as a First Pass Yield flag (IF(Errors = 0, 1, 0)), and Productivity (items per minute). In the sample data, picker P-04 met the speed target with only 33% accuracy, while P-03 was accurate but 55% slower than target, which shows exactly where coaching is needed.",
       impact: [
-        "Incentivized Quality: Shifted internal KPIs from \"Total Items Picked\" to \"Total Perfect Orders\" to align staff with our brand's premium promise.",
-        "Targeted Training: Replaced general team lectures with specific workstation coaching for underperformers, reducing return shipping costs by 15%."
+        "Quality-first KPI: measure \"perfect orders\" instead of \"items picked\".",
+        "Targeted coaching: train specific pickers on their specific gap, instead of generic team sessions."
       ]
     },
-    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQD5WA9MDJs3TKqO7QLpfftkAVwtR9vAtB0waL2f-6seVAw?e=WDdUZi"
+    excelUrl: "https://1drv.ms/x/c/9fe491d7359e791d/IQD5WA9MDJs3TKqO7QLpfftkAVwtR9vAtB0waL2f-6seVAw?e=WDdUZi",
+    isSample: true
   },
   {
     id: 'powerbi-tutorial',
@@ -336,9 +411,9 @@ export const PROJECTS: Project[] = [
     hubConfig: {
       title: "Article Hub",
       description: "Read the full step-by-step tutorial published on Medium.",
-      buttonText: "READ_ARTICLE",
-      format: ".URL // MEDIUM",
-      metadata: "TUTORIAL_GUIDE"
+      buttonText: "Read article",
+      format: "Medium article",
+      metadata: "Tutorial"
     }
   }
 ];
