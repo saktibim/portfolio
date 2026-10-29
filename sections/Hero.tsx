@@ -39,10 +39,9 @@ const Hero: React.FC = () => {
           )}
           <div>
             <h1 className="font-mono text-3xl md:text-5xl font-bold leading-tight mb-6 text-off-black tracking-tight">
-              I help growing businesses stop stockouts, fix inventory data and cut{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10">procurement waste.</span>
-                <span className="absolute bottom-1 left-0 w-full h-[0.3em] bg-matrix-green -z-0" />
+              I help growing businesses stop stockouts, fix inventory data and{' '}
+              <span className="bg-[linear-gradient(transparent_62%,#00FF41_62%_90%,transparent_90%)] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
+                free up cash tied up in stock.
               </span>
             </h1>
 
