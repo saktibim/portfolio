@@ -19,6 +19,8 @@ export interface ExperienceItem {
   period: string;
   // One-line result shown in the homepage "Track record" list
   highlight: string;
+  // Short industry label shown in the homepage Track record table
+  sector: string;
   headline: string;
   context: string;
   techStack: string[];
