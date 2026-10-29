@@ -116,7 +116,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                   <p className="font-sans text-sm text-gray-600 leading-relaxed">
                     <span className="font-semibold text-off-black">Practice project with sample data.</span>{' '}
                     The company and numbers below are illustrative, built to show the method and the working file.
-                    My real, measured results (HPE, DHL, Yusen) are in my work history.
+                    My real, measured results (HPE, DHL, Yusen) are in my track record on the homepage.
                   </p>
                 </div>
               )}

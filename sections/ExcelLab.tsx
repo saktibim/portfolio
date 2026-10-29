@@ -49,7 +49,7 @@ const ExcelLab: React.FC = () => {
         >
           <p className="font-sans text-gray-500 max-w-sm md:text-right font-light leading-relaxed">
             Practice projects built on sample data to show my methods. You can open every file.
-            My real, measured results are in the work history above.
+            My real, measured results are in the track record below.
           </p>
           <Link
             to="/projects"

@@ -17,6 +17,8 @@ export interface ExperienceItem {
   company: string;
   role: string;
   period: string;
+  // One-line result shown in the homepage "Track record" list
+  highlight: string;
   headline: string;
   context: string;
   techStack: string[];

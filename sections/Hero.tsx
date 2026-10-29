@@ -49,8 +49,7 @@ const Hero: React.FC = () => {
             <p className="font-sans text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mb-10 font-light">
               Hi, I'm Bima, a supply chain and inventory specialist with 9 years of experience, including{' '}
               <span className="font-semibold text-off-black">4.5 years running materials & order management at Hewlett Packard Enterprise</span>.
-              I bring enterprise discipline (<span className="font-semibold text-off-black">SAP MM/SD, Lean Six Sigma Green Belt, Power BI</span>)
-              to teams that still run on spreadsheets.
+              I turn messy spreadsheets into clear Excel and Power BI dashboards that show growing teams their stock, orders and suppliers at a glance.
             </p>
           </div>
         </div>
@@ -89,8 +88,7 @@ const Hero: React.FC = () => {
           {HEADLINE_STATS.map((stat) => (
             <div key={stat.label} className="bg-white p-5 md:p-6">
               <p className="font-mono text-2xl md:text-3xl font-bold text-off-black mb-2">{stat.value}</p>
-              <p className="font-sans text-sm text-gray-600 leading-snug mb-2">{stat.label}</p>
-              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-gray-400">{stat.source}</p>
+              <p className="font-sans text-sm text-gray-600 leading-snug">{stat.label}</p>
             </div>
           ))}
         </div>

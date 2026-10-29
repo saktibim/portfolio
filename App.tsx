@@ -61,8 +61,8 @@ const Home = () => {
       <Hero />
       <DashboardShowcase />
       <Services />
-      <Experience />
       <ExcelLab />
+      <Experience />
       <Skills />
     </>
   );
@@ -86,8 +86,8 @@ const ProjectDetailWrapper = () => {
 
 const NAV_LINKS = [
   { to: '/#services', label: 'Services' },
-  { to: '/#experience', label: 'Experience' },
   { to: '/#lab', label: 'Portfolio' },
+  { to: '/#experience', label: 'Track record' },
   { to: '/certificates', label: 'Certificates' },
 ];
 

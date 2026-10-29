@@ -5,10 +5,18 @@ import { Link } from 'react-router-dom';
 import { PROFESSIONAL_HISTORY } from '../constants';
 import { ChevronRight } from 'lucide-react';
 
+// "08/2024 — 08/2025" -> "2024–2025" (single year if both ends match)
+const toYears = (period: string) => {
+  const years = period.match(/\d{4}/g) ?? [];
+  const first = years[0];
+  const last = years[years.length - 1];
+  return first === last ? first : `${first}–${last}`;
+};
+
 const Experience: React.FC = () => {
   return (
     <Section id="experience" className="bg-[#FAFAFA]">
-      <div className="mb-20">
+      <div className="mb-12 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,182 +24,64 @@ const Experience: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] mb-6 text-gray-400">
-            Experience
+            Track record
           </h2>
-          <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">Work history & results</h3>
+          <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">9 years of real supply chain work</h3>
+          <p className="font-sans text-gray-500 text-base font-light mt-4 max-w-2xl">
+            The case studies above use practice data. This is the real work behind them.
+          </p>
         </motion.div>
       </div>
 
-      <div className="relative max-w-5xl">
-        {/* Timeline main vertical line */}
-        <div className="absolute left-4 md:left-[2.25rem] top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
-
-        <div className="space-y-24">
+      <div className="max-w-5xl">
+        <ul className="border-t border-gray-200">
           {PROFESSIONAL_HISTORY.map((role, index) => (
-            <motion.div
+            <motion.li
               key={role.id}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="relative pl-6 md:pl-24"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className={
+                role.featuredNote
+                  ? 'my-3 bg-white border-2 border-matrix-green p-5 md:p-7 shadow-[0_20px_40px_rgba(0,255,65,0.08)]'
+                  : 'border-b border-gray-200 py-6 md:py-7'
+              }
             >
-              {/* Timeline Indicator Hub */}
-              <div className="absolute left-0 md:left-[1.85rem] top-1.5 flex items-center justify-center">
-                <div className="w-3 h-3 bg-white border-2 border-matrix-green rounded-full z-20 shadow-[0_0_8px_rgba(0,255,65,0.4)]"></div>
-                <div className="absolute w-6 h-6 bg-matrix-green/10 rounded-full animate-ping opacity-20"></div>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-
-                {/* Meta Info (Tech Stack) */}
-                <div className="lg:col-span-3 pt-2">
-                  <div className="flex flex-wrap gap-2">
-                    {role.techStack.map(tech => (
-                      <span key={tech} className="px-2.5 py-1 border border-gray-100 text-[9px] font-mono font-bold text-gray-400 bg-white uppercase tracking-wider">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              {role.featuredNote && (
+                <span className="inline-block mb-4 px-3 py-1 bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase tracking-[0.15em]">
+                  ★ {role.featuredNote}
+                </span>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-2 items-baseline">
+                <p className="md:col-span-2 font-mono text-[11px] font-bold text-gray-400 tracking-[0.1em]">
+                  {toYears(role.period)}
+                </p>
+                <div className="md:col-span-4">
+                  <h4 className="font-mono text-base md:text-lg font-bold text-off-black tracking-tight">
+                    {role.company}
+                  </h4>
+                  <p className="font-sans text-sm text-gray-500 mt-1">{role.role}</p>
                 </div>
-
-                {/* Content Block */}
-                <div className="lg:col-span-9">
-                  <div className={`group ${role.featuredNote ? 'bg-white border-2 border-matrix-green p-6 md:p-10 shadow-[0_20px_40px_rgba(0,255,65,0.08)]' : ''}`}>
-                    {role.featuredNote && (
-                      <span className="inline-block mb-6 px-3 py-1 bg-matrix-green text-off-black font-mono text-[10px] font-bold uppercase tracking-[0.15em]">
-                        ★ {role.featuredNote}
-                      </span>
-                    )}
-                    <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-8 gap-4">
-                      <div>
-                        <h4 className="font-mono text-2xl md:text-3xl font-bold text-off-black group-hover:text-matrix-green transition-colors tracking-tight">
-                          {role.company}
-                        </h4>
-                        <div className="flex flex-wrap items-center gap-3 mt-2 text-gray-400 font-mono text-[10px] font-bold tracking-[0.1em] uppercase">
-                          <span className="text-off-black">{role.role}</span>
-                          <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                          <span>{role.period}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mb-10 bg-white/50 border-l border-matrix-green pl-6 py-2">
-                      <p className="font-mono text-xs font-bold text-off-black mb-3 uppercase tracking-wide">
-                        {role.headline}
-                      </p>
-                      <p className="font-sans text-gray-500 text-base leading-relaxed font-light italic">
-                        "{role.context}"
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                      {role.achievements.map((achievement, idx) => (
-                        <div key={idx} className="flex items-start group/ach">
-                          <div className="w-5 h-5 rounded-full bg-matrix-green/5 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0 group-hover/ach:bg-matrix-green/10 transition-colors">
-                            <ChevronRight className="w-3 h-3 text-matrix-green" />
-                          </div>
-                          <div>
-                            {achievement.title && achievement.title !== 'Impact' && (
-                              <span className="font-mono text-[10px] font-bold text-off-black block mb-1 uppercase tracking-wider">
-                                {achievement.title}
-                              </span>
-                            )}
-                            <p className="font-sans text-gray-600 text-[14px] leading-relaxed font-light">
-                              {achievement.description}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <p className="md:col-span-6 font-sans text-[15px] text-gray-700 leading-relaxed mt-1 md:mt-0">
+                  {role.highlight}
+                </p>
               </div>
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
-        
-        {/* Education & Certifications */}
-        <div className="mt-32 pt-20 border-t border-gray-100">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
+        </ul>
+
+        <div className="mt-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="font-sans text-sm text-gray-500 leading-relaxed">
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mr-3">Training</span>
+            Lean Six Sigma Green Belt · Supply Chain Management Specialization (Rutgers University)
+          </p>
+          <Link
+            to="/certificates"
+            className="inline-flex items-center font-mono text-xs font-bold text-off-black uppercase tracking-[0.2em] hover:text-matrix-green transition-colors group no-underline"
           >
-            <h2 className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] mb-6 text-gray-400">
-              Education
-            </h2>
-            <h3 className="font-mono text-2xl md:text-3xl font-bold tracking-tight">Education & Certifications</h3>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h4 className="font-mono text-lg font-bold text-matrix-green mb-6 uppercase tracking-wider">Education</h4>
-              <div className="bg-white border border-gray-100 p-8 hover:border-matrix-green/50 transition-colors hidden md:block w-full">
-                 <h5 className="font-sans font-bold text-lg text-off-black leading-snug mb-2">Bachelor of Electrical Engineering</h5>
-                 <p className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-4">Institut Sains & Teknologi Akprind</p>
-              </div>
-               {/* Mobile view fallback without full width box */}
-              <div className="md:hidden">
-                 <h5 className="font-sans font-bold text-lg text-off-black leading-snug mb-2">Bachelor of Electrical Engineering</h5>
-                 <p className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-4">Institut Sains & Teknologi Akprind</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h4 className="font-mono text-lg font-bold text-matrix-green mb-6 uppercase tracking-wider">Certifications</h4>
-              <ul className="space-y-6">
-                <li className="flex items-start">
-                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
-                   <div>
-                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Certified Lean Six Sigma Green Belt</p>
-                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Six Sigma Academy Amsterdam (2024)</p>
-                   </div>
-                </li>
-                <li className="flex items-start">
-                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
-                   <div>
-                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Certified Process Improvement & Process Mapping Expert</p>
-                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Six Sigma Academy Amsterdam (2024)</p>
-                   </div>
-                </li>
-                <li className="flex items-start">
-                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
-                   <div>
-                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Demand Planning Management</p>
-                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Kaweroo Institute (2023)</p>
-                   </div>
-                </li>
-                <li className="flex items-start">
-                   <div className="w-2 h-2 bg-matrix-green/50 mt-2 mr-4 rounded-sm"></div>
-                   <div>
-                     <p className="font-sans font-bold text-off-black text-[15px] mb-1">Supply Chain Management Specialization</p>
-                     <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest">Rutgers University (2024)</p>
-                   </div>
-                </li>
-              </ul>
-              <div className="mt-8">
-                <Link
-                  to="/certificates"
-                  className="inline-flex items-center font-mono text-xs font-bold text-off-black uppercase tracking-[0.2em] hover:text-matrix-green transition-colors group no-underline"
-                >
-                  Verify certificates <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+            Verify certificates <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </Section>

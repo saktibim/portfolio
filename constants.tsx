@@ -19,10 +19,10 @@ export const CV_URL = "";
 export const PHOTO_URL = "/bima.png";
 
 export const HEADLINE_STATS = [
-  { value: '$90K', label: 'Capital recovered from pending part returns', source: 'HPE' },
-  { value: '−25%', label: 'Procurement lead time', source: 'HPE' },
-  { value: '23', label: 'Solar projects supplied (27 MWp)', source: 'Suryanesia' },
-  { value: '99.5%', label: 'Inventory accuracy, 500+ SKUs', source: 'DHL · Unilever warehouse' },
+  { value: '8+ Years', label: 'SCM & Process Improvement' },
+  { value: '99%+', label: 'Inventory Accuracy Benchmark' },
+  { value: '30+', label: 'Analytics Dashboards Built' },
+  { value: 'Global', label: 'Markets Aligned' },
 ];
 
 export const SERVICES = [
@@ -91,6 +91,7 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'Sleep EZ Australia',
     role: 'Inventory & Supply Chain Specialist',
     period: '08/2025 — 01/2026',
+    highlight: '39 SKUs on Amazon AU, no stockouts through the Chinese New Year shutdown',
     headline: 'Amazon FBA inventory for a 3-brand, 39-SKU portfolio (AU market).',
     context: 'Kept best-sellers in stock and FBA operations running for SleepEZ, Airspire and Swisho, working with suppliers in China and a remote team across 4 locations.',
     techStack: ['Amazon FBA', 'Seller Central', 'Inventory Planning', 'Asana'],
@@ -122,6 +123,7 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'Suryanesia',
     role: 'Procurement & Logistics Specialist',
     period: '08/2024 — 08/2025',
+    highlight: 'Procurement & logistics for 23 solar projects (27 MWp), 43,000+ panels',
     headline: 'Procurement & logistics for 23 commercial & industrial solar projects (27 MWp).',
     context: 'Sourced, shipped and stored the equipment for rooftop solar installations at industrial factories across Java, from Tier-1 manufacturers and local TKDN suppliers.',
     techStack: ['EPC Procurement', 'Import Logistics', 'TKDN', 'ClickUp', 'Power BI'],
@@ -153,6 +155,7 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'Hewlett Packard Enterprise (HPE)',
     role: 'Material & Order Management Specialist',
     period: '03/2019 — 08/2023',
+    highlight: '$90K working capital recovered, −25% procurement lead time',
     headline: 'Materials and order management for enterprise server components.',
     context: 'Processed 660+ SAP lines a month and supported parts availability for Sales, Field Engineers, Delivery Managers and 3PL warehouses, including 24-hour standby for urgent spare parts.',
     techStack: ['SAP SD/MM', 'Power BI', 'Advanced Excel', 'MRP'],
@@ -189,6 +192,7 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'Yusen Logistics',
     role: 'Traffic Planner',
     period: '11/2018 — 03/2019',
+    highlight: '20 container trucks dispatched per day; recruited directly by HPE',
     headline: 'Port-to-factory container transport, Tanjung Priok to Jabodetabek.',
     context: 'Planned and tracked daily container trucking for industrial raw materials. Recruited directly by Hewlett Packard Enterprise from this role.',
     techStack: ['TMS', 'GPS Tracking', 'Fleet Dispatch'],
@@ -212,6 +216,7 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
     company: 'DHL Supply Chain',
     role: 'Inventory Analyst',
     period: '01/2017 — 11/2018',
+    highlight: '99.5% inventory accuracy across 500+ SKUs (Unilever)',
     headline: 'Inventory control for the Unilever account, 500+ FMCG SKUs.',
     context: 'Led shift inventory control at DHL Multi-User Facility 2 (Bekasi) with a team of 2 inventory checkers.',
     techStack: ['SAP', 'WMS', 'Advanced Excel', 'FIFO & 5S'],
