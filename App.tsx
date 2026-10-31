@@ -10,6 +10,7 @@ import Footer from './sections/Footer';
 import ProjectDetail from './sections/ProjectDetail';
 import AllProjects from './sections/AllProjects';
 import Certificates from './sections/Certificates';
+import Checklist from './sections/Checklist';
 import { Menu, X } from 'lucide-react';
 import { PROJECTS } from './constants';
 import { openCalendly, trackEvent, useUpworkMode } from './contact';
@@ -89,6 +90,7 @@ const NAV_LINKS = [
   { to: '/#lab', label: 'Portfolio' },
   { to: '/#experience', label: 'Track record' },
   { to: '/certificates', label: 'Certificates' },
+  { to: '/checklist', label: 'Free checklist' },
 ];
 
 function App() {
@@ -112,7 +114,7 @@ function App() {
             opswithbima<span className="text-matrix-green group-hover:animate-pulse">.com</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-10 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-10 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 whitespace-nowrap">
             {NAV_LINKS.map((link) => (
               <Link key={link.to} to={link.to} className="hover:text-off-black transition-colors relative group no-underline text-gray-500">
                 {link.label}
@@ -130,7 +132,7 @@ function App() {
           </div>
 
           <button
-            className="md:hidden p-2 -mr-2 text-off-black"
+            className="lg:hidden p-2 -mr-2 text-off-black"
             onClick={() => setMenuOpen((open) => !open)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
@@ -140,7 +142,7 @@ function App() {
         </div>
 
         {menuOpen && (
-          <div className="md:hidden border-t border-gray-100 bg-white px-6 py-6 flex flex-col gap-5 font-mono text-sm font-bold uppercase tracking-[0.15em]">
+          <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-6 flex flex-col gap-5 font-mono text-sm font-bold uppercase tracking-[0.15em]">
             {NAV_LINKS.map((link) => (
               <Link key={link.to} to={link.to} className="no-underline text-off-black">
                 {link.label}
@@ -156,6 +158,7 @@ function App() {
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/project/:id" element={<ProjectDetailWrapper />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/checklist" element={<Checklist />} />
         </Routes>
       </main>
 
@@ -163,7 +166,7 @@ function App() {
 
       {/* Mobile sticky CTA */}
       {!upwork && (
-        <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/95 backdrop-blur border-t border-gray-100">
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/95 backdrop-blur border-t border-gray-100">
           <button
             onClick={() => openCalendly('mobile_sticky')}
             className="w-full bg-matrix-green text-off-black font-mono text-xs font-bold uppercase tracking-[0.15em] py-4"

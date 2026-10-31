@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
   const upwork = useUpworkMode();
 
   return (
-    <footer id="contact" className="bg-off-black text-[#F0F0F0] pt-24 md:pt-32 pb-28 md:pb-16 px-6 md:px-12 border-t-8 border-matrix-green relative overflow-hidden">
+    <footer id="contact" className="bg-off-black text-[#F0F0F0] pt-24 md:pt-32 pb-28 lg:pb-16 px-6 md:px-12 border-t-8 border-matrix-green relative overflow-hidden">
       {/* Decorative background grid line */}
       <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/5 pointer-events-none hidden xl:block"></div>
 

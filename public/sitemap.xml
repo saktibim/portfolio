@@ -3,6 +3,7 @@
   <url><loc>https://www.opswithbima.com/</loc><priority>1.0</priority></url>
   <url><loc>https://www.opswithbima.com/projects</loc><priority>0.7</priority></url>
   <url><loc>https://www.opswithbima.com/certificates</loc><priority>0.6</priority></url>
+  <url><loc>https://www.opswithbima.com/checklist</loc><priority>0.6</priority></url>
   <url><loc>https://www.opswithbima.com/project/amazon-arbitrage</loc><priority>0.6</priority></url>
   <url><loc>https://www.opswithbima.com/project/freight-engine</loc><priority>0.5</priority></url>
   <url><loc>https://www.opswithbima.com/project/procurement</loc><priority>0.5</priority></url>
