@@ -209,7 +209,7 @@ const Checklist: React.FC = () => {
                 Ticked fewer than 6?
               </h2>
               <p className="font-sans text-gray-400 font-light leading-relaxed">
-                Book a free 20-min stock check. We'll find your biggest leak together.
+                Book a free 15-min stock check. We'll find your biggest leak together.
               </p>
             </div>
             <Button
