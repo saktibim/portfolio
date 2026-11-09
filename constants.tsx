@@ -475,6 +475,14 @@ export const PROJECTS: Project[] = [
 
 export const CERTIFICATIONS: Certificate[] = [
   {
+    id: 'pmp-exam-prep',
+    title: 'Project Management Professional (PMP) Exam Prep, 35 PDU',
+    issuer: 'TIA Education Group',
+    date: '05-Nov-2026',
+    verificationUrl: '/certificates/TIA PMP Exam Prep 35 PDU Certificate.pdf',
+    skills: ['Project Management', 'Agile & Hybrid Delivery', 'Risk Management', 'Stakeholder Management', 'Project Planning']
+  },
+  {
     id: 'six-sigma-green-belt',
     title: 'Certified Lean Six Sigma Green Belt',
     issuer: 'Six Sigma Academy Amsterdam',
