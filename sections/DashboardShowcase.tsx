@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, animate, motion, useInView, useReducedMotion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Animated mock dashboards that play like a short product video.
-// All numbers are illustrative sample data, not client results.
+// A real Excel screen recording plus animated mock dashboards that play like a short product video.
+// All numbers are sample/synthetic data, not client results.
 
 const RED = '#FF4D4D';
 const AMBER = '#FFB020';
@@ -35,7 +35,9 @@ const Kpi: React.FC<{ label: string; delay: number; children: React.ReactNode; a
   </motion.div>
 );
 
-const Window: React.FC<{ file: string; children: React.ReactNode }> = ({ file, children }) => (
+const Window: React.FC<{ file: string; label?: string; flush?: boolean; children: React.ReactNode }> = ({
+  file, label = 'Illustrative · sample data', flush = false, children,
+}) => (
   <div className="bg-[#0B0B0B] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.35),0_0_60px_rgba(0,255,65,0.06)]">
     <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/10">
       <div className="flex items-center gap-1.5">
@@ -45,12 +47,35 @@ const Window: React.FC<{ file: string; children: React.ReactNode }> = ({ file, c
         <span className="ml-3 font-mono text-[10px] text-gray-500">{file}</span>
       </div>
       <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.15em] text-gray-500 border border-white/10 px-2 py-0.5">
-        Illustrative · sample data
+        {label}
       </span>
     </div>
-    <div className="p-4 md:p-6">{children}</div>
+    <div className={flush ? '' : 'p-4 md:p-6'}>{children}</div>
   </div>
 );
+
+/* ---------- Slide 0: Cash collection (real Excel recording) ---------- */
+const CashCollectionVideo: React.FC = () => {
+  const reduce = useReducedMotion();
+  return (
+    <Window file="cash_collection.xlsx" label="Real Excel file · synthetic data" flush>
+      <video
+        src="/videos/cash-collection-dashboard.mp4"
+        poster="/videos/cash-collection-dashboard.jpg"
+        width={1440}
+        height={1080}
+        autoPlay={!reduce}
+        controls={!!reduce}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label="Screen recording of a cash collection dashboard in Excel, filtered by customer type and collector"
+        className="block w-full h-auto"
+      />
+    </Window>
+  );
+};
 
 /* ---------- Slide 1: Inventory health ---------- */
 const SKU_RISK = [
@@ -199,6 +224,14 @@ const SupplierDashboard: React.FC = () => (
 /* ---------- Showcase slider ---------- */
 const SLIDES = [
   {
+    id: 'cash',
+    eyebrow: 'Cash Collection',
+    title: 'Know who owes you, and who is chasing it.',
+    body: 'A real Excel dashboard, recorded as I use it. Filter by customer type or collector and the ageing, overdue list and team view update instantly.',
+    Dashboard: CashCollectionVideo,
+    seconds: 25,
+  },
+  {
     id: 'inventory',
     eyebrow: 'Inventory Health Check',
     title: 'See stockouts before they happen.',
@@ -230,14 +263,15 @@ const DashboardShowcase: React.FC = () => {
 
   const go = (step: number) => setIndex((i) => (i + step + SLIDES.length) % SLIDES.length);
 
-  useEffect(() => {
-    if (!inView || paused) return;
-    const timer = setTimeout(() => go(1), SLIDE_SECONDS * 1000);
-    return () => clearTimeout(timer);
-  }, [index, inView, paused]);
-
   const slide = SLIDES[index];
   const Dashboard = slide.Dashboard;
+  const slideSeconds = slide.seconds ?? SLIDE_SECONDS;
+
+  useEffect(() => {
+    if (!inView || paused) return;
+    const timer = setTimeout(() => go(1), slideSeconds * 1000);
+    return () => clearTimeout(timer);
+  }, [index, inView, paused]);
 
   return (
     <section id="showcase" className="bg-off-black text-[#F0F0F0] overflow-hidden">
@@ -251,7 +285,7 @@ const DashboardShowcase: React.FC = () => {
           What I build
         </p>
 
-        <div className="min-h-[640px] md:min-h-[460px]">
+        <div className="min-h-[640px] md:min-h-[460px] lg:min-h-[600px]">
           {inView && (
             <AnimatePresence mode="wait">
               <motion.div
@@ -313,7 +347,7 @@ const DashboardShowcase: React.FC = () => {
                     className="absolute inset-y-0 left-0 bg-matrix-green"
                     initial={{ width: '0%' }}
                     animate={{ width: '100%' }}
-                    transition={{ duration: paused ? 0 : SLIDE_SECONDS, ease: 'linear' }}
+                    transition={{ duration: paused ? 0 : slideSeconds, ease: 'linear' }}
                   />
                 )}
               </button>
