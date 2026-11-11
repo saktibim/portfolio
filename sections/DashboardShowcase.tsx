@@ -54,14 +54,14 @@ const Window: React.FC<{ file: string; label?: string; flush?: boolean; children
   </div>
 );
 
-/* ---------- Slide 0: Cash collection (real Excel recording) ---------- */
-const CashCollectionVideo: React.FC = () => {
+/* ---------- Real Excel recordings (1440x1080, silent, poster = first frame) ---------- */
+const Recording: React.FC<{ name: string; file: string; description: string }> = ({ name, file, description }) => {
   const reduce = useReducedMotion();
   return (
-    <Window file="cash_collection.xlsx" label="Real Excel file · synthetic data" flush>
+    <Window file={file} label="Real Excel file · synthetic data" flush>
       <video
-        src="/videos/cash-collection-dashboard.mp4"
-        poster="/videos/cash-collection-dashboard.jpg"
+        src={`/videos/${name}.mp4`}
+        poster={`/videos/${name}.jpg`}
         width={1440}
         height={1080}
         autoPlay={!reduce}
@@ -70,12 +70,28 @@ const CashCollectionVideo: React.FC = () => {
         loop
         playsInline
         preload="metadata"
-        aria-label="Screen recording of a cash collection dashboard in Excel, filtered by customer type and collector"
+        aria-label={description}
         className="block w-full h-auto"
       />
     </Window>
   );
 };
+
+const CashCollectionVideo: React.FC = () => (
+  <Recording
+    name="cash-collection-dashboard"
+    file="cash_collection.xlsx"
+    description="Screen recording of a cash collection dashboard in Excel, filtered by customer type and collector"
+  />
+);
+
+const ForecastOverstockVideo: React.FC = () => (
+  <Recording
+    name="forecast-overstock-dashboard"
+    file="forecast_overstock.xlsx"
+    description="Screen recording of a forecast accuracy and overstock dashboard in Excel, filtered by category and sales channel"
+  />
+);
 
 /* ---------- Slide 1: Inventory health ---------- */
 const SKU_RISK = [
@@ -123,51 +139,6 @@ const InventoryDashboard: React.FC = () => (
         </div>
       ))}
     </div>
-  </Window>
-);
-
-/* ---------- Slide 2: Demand planning ---------- */
-const ACTUAL = [820, 860, 790, 910, 980, 1040, 990, 1080, 1150, 1120];
-const FORECAST = [800, 850, 830, 890, 960, 1010, 1020, 1060, 1130, 1150, 1210, 1260];
-const toPath = (values: number[], total: number) => {
-  const min = 700, max = 1300, w = 300, h = 120;
-  return values
-    .map((v, i) => `${i === 0 ? 'M' : 'L'}${((i / (total - 1)) * w).toFixed(1)},${(h - ((v - min) / (max - min)) * h).toFixed(1)}`)
-    .join(' ');
-};
-
-const DemandDashboard: React.FC = () => (
-  <Window file="demand_plan.xlsx">
-    <div className="grid grid-cols-3 gap-2 md:gap-3 mb-5">
-      <Kpi label="Forecast accuracy" delay={0.1} accent={GREEN}><CountUp to={91.4} decimals={1} suffix="%" /></Kpi>
-      <Kpi label="Forecast bias" delay={0.2}><CountUp to={2.1} decimals={1} prefix="−" suffix="%" delay={0.2} /></Kpi>
-      <Kpi label="Next 4 wks (units)" delay={0.3}><CountUp to={12480} delay={0.3} /></Kpi>
-    </div>
-    <div className="flex items-center gap-5 mb-3 font-mono text-[9px] uppercase tracking-[0.15em] text-gray-500">
-      <span className="flex items-center gap-2"><span className="w-4 h-0.5 bg-gray-300" />Actual</span>
-      <span className="flex items-center gap-2"><span className="w-4 h-0.5" style={{ backgroundColor: GREEN }} />Forecast</span>
-    </div>
-    <svg viewBox="0 0 300 130" className="w-full h-auto" role="img" aria-label="Actual vs forecast demand, sample data">
-      {[0, 30, 60, 90, 120].map((y) => (
-        <line key={y} x1="0" x2="300" y1={y} y2={y} stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
-      ))}
-      <motion.path
-        d={toPath(FORECAST, FORECAST.length)}
-        fill="none" stroke={GREEN} strokeWidth="1.6" strokeDasharray="0" strokeLinecap="round"
-        initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-        transition={{ delay: 0.5, duration: 2, ease: 'easeInOut' }}
-      />
-      <motion.path
-        d={toPath(ACTUAL, FORECAST.length)}
-        fill="none" stroke="#D4D4D4" strokeWidth="1.6" strokeLinecap="round"
-        initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-        transition={{ delay: 0.8, duration: 1.8, ease: 'easeInOut' }}
-      />
-      <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.6 }}>
-        <line x1={(9 / 11) * 300} x2={(9 / 11) * 300} y1="0" y2="120" stroke="rgba(255,255,255,0.25)" strokeDasharray="2 2" strokeWidth="0.6" />
-        <text x={(9 / 11) * 300 + 4} y="10" fill="#9CA3AF" fontSize="6" fontFamily="JetBrains Mono, monospace">TODAY</text>
-      </motion.g>
-    </svg>
   </Window>
 );
 
@@ -232,18 +203,19 @@ const SLIDES = [
     seconds: 25,
   },
   {
+    id: 'forecast',
+    eyebrow: 'Forecast Accuracy & Overstock',
+    title: 'See where forecasts miss, and what it costs.',
+    body: 'A real Excel dashboard, recorded as I use it. Filter by month, category or channel to see forecast accuracy, bias and the cash sitting in excess stock, with clear next steps.',
+    Dashboard: ForecastOverstockVideo,
+    seconds: 26,
+  },
+  {
     id: 'inventory',
     eyebrow: 'Inventory Health Check',
     title: 'See stockouts before they happen.',
     body: 'Every SKU scored by stockout risk, with clear reorder signals your team can act on this week.',
     Dashboard: InventoryDashboard,
-  },
-  {
-    id: 'demand',
-    eyebrow: 'Demand Planning',
-    title: 'Plan from data, not gut feeling.',
-    body: 'Actual vs. forecast in one view, with accuracy and bias tracked so the plan gets better every month.',
-    Dashboard: DemandDashboard,
   },
   {
     id: 'supplier',
