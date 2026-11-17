@@ -8,7 +8,8 @@ import {
   Warehouse,
   BarChart2,
   Calculator,
-  ShoppingCart
+  ShoppingCart,
+  ClipboardCheck
 } from 'lucide-react';
 
 export const CALENDLY_URL = "https://calendly.com/opswithbima/30min?background_color=00ff6f&text_color=000000&primary_color=ffffff";
@@ -247,6 +248,51 @@ export const PROFESSIONAL_HISTORY: ExperienceItem[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'inventory-accuracy',
+    title: 'Inventory Record Accuracy & Cycle Count Dashboard',
+    subtitle: 'An Excel dashboard that shows how far your stock records have drifted from what is on the shelf.',
+    metaDescription: 'An Excel dashboard that measures inventory record accuracy and cycle count variance, with slicers for month, category, site and zone.',
+    ctaTitle: 'Want a stock accuracy dashboard for your store? Get in touch.',
+    tags: ['#InventoryAccuracy', '#CycleCounting', '#AdvancedExcel'],
+    description: 'An Excel dashboard that shows how far your stock records have drifted from what is on the shelf, with a short video walkthrough.',
+    icon: <ClipboardCheck className="w-6 h-6" />,
+    content: {
+      article: {
+        title: 'Inventory Record Accuracy & Cycle Count Dashboard',
+        blocks: [
+          {
+            type: 'video',
+            url: '/videos/inventory-accuracy-dashboard.mp4',
+            poster: '/videos/inventory-accuracy-dashboard.jpg',
+            autoplay: true,
+            caption: 'A short walkthrough: pick a month, category, site or zone, and every KPI, list and chart updates.'
+          },
+          {
+            type: 'text',
+            content: "### The problem\n\nWhen the system says you have 40 units and the shelf has 31, you oversell, reorder the wrong stock and lose trust in your numbers. Most owners only find out after a customer complaint. This dashboard measures the gap, so you can see where it comes from and fix it."
+          },
+          {
+            type: 'text',
+            content: "### What it shows\n\n- **Record accuracy:** the share of counts that land within ±2% of the system quantity\n- **Count completion:** how many scheduled counts actually happened\n- **Recount rate:** how often a mismatch is checked again\n- **Net and gross variance:** shortages and overages in dollars, as a share of stock value\n- **Variance by cause:** mis-picks, receiving errors, damage, unrecorded returns and unknowns\n- **Accuracy by zone and by counter:** where the problems cluster\n- **Count process:** scheduled → counted → variance found → recounted → adjusted"
+          },
+          {
+            type: 'text',
+            content: "### How it works\n\nEach cycle count is one line of data. Excel PivotTables and PivotCharts roll the lines up. Four slicers (month, category, site, zone) filter every number on the page at once. There are no macros."
+          },
+          {
+            type: 'text',
+            content: "### How I checked it\n\nI selected slicer combinations in Excel and matched every figure against totals calculated separately in Python."
+          },
+          {
+            type: 'text',
+            content: "**Built with:** Excel (PivotTables, PivotCharts, native slicers) · Python for data generation and testing\n\n**About the data:** all data is fictional (80 count lines, coded SKUs, amounts in USD). It shows how the dashboard works, not real results."
+          }
+        ]
+      }
+    },
+    isSample: true
+  },
   {
     id: 'amazon-arbitrage',
     title: "How I'd Approach Product Analytics for an Amazon Arbitrage Business",

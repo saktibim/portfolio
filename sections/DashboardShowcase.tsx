@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, animate, motion, useInView, useReducedMotion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // A real Excel screen recording plus animated mock dashboards that play like a short product video.
 // All numbers are sample/synthetic data, not client results.
@@ -93,56 +94,15 @@ const ForecastOverstockVideo: React.FC = () => (
   />
 );
 
-/* ---------- Slide 1: Inventory health ---------- */
-const SKU_RISK = [
-  { sku: 'SKU-A104', risk: 42, status: 'REORDER NOW' },
-  { sku: 'SKU-B221', risk: 36, status: 'REORDER NOW' },
-  { sku: 'SKU-A087', risk: 24, status: 'WATCH' },
-  { sku: 'SKU-C310', risk: 18, status: 'WATCH' },
-  { sku: 'SKU-B019', risk: 7, status: 'HEALTHY' },
-  { sku: 'SKU-C155', risk: 3, status: 'HEALTHY' },
-];
-const riskColor = (risk: number) => (risk >= 30 ? RED : risk >= 15 ? AMBER : GREEN);
-
-const InventoryDashboard: React.FC = () => (
-  <Window file="inventory_health.pbix">
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-5">
-      <Kpi label="Stock value" delay={0.1}><CountUp to={248600} prefix="$" /></Kpi>
-      <Kpi label="SKUs at risk" delay={0.2} accent={RED}><CountUp to={6} delay={0.2} /></Kpi>
-      <Kpi label="In-stock rate" delay={0.3} accent={GREEN}><CountUp to={97.8} decimals={1} suffix="%" delay={0.3} /></Kpi>
-      <Kpi label="Days of cover" delay={0.4}><CountUp to={34} delay={0.4} /></Kpi>
-    </div>
-    <p className="font-mono text-[9px] uppercase tracking-[0.15em] text-gray-500 mb-3">Stockout probability · next 30 days</p>
-    <div className="space-y-2.5">
-      {SKU_RISK.map((row, i) => (
-        <div key={row.sku} className="grid grid-cols-[64px_1fr_44px] md:grid-cols-[80px_1fr_48px_104px] items-center gap-3">
-          <span className="font-mono text-[10px] md:text-[11px] text-gray-400">{row.sku}</span>
-          <div className="h-2.5 bg-white/5 overflow-hidden">
-            <motion.div
-              className="h-full"
-              style={{ backgroundColor: riskColor(row.risk) }}
-              initial={{ width: 0 }}
-              animate={{ width: `${(row.risk / 50) * 100}%` }}
-              transition={{ delay: 0.6 + i * 0.12, duration: 0.9, ease: 'easeOut' }}
-            />
-          </div>
-          <span className="font-mono text-[10px] md:text-[11px] text-gray-300 text-right">{row.risk}%</span>
-          <motion.span
-            initial={{ opacity: 0, x: 8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.4 + i * 0.12 }}
-            className="hidden md:inline-block font-mono text-[9px] font-bold tracking-[0.1em] px-2 py-0.5 text-center"
-            style={{ color: riskColor(row.risk), border: `1px solid ${riskColor(row.risk)}55` }}
-          >
-            {row.status}
-          </motion.span>
-        </div>
-      ))}
-    </div>
-  </Window>
+const InventoryAccuracyVideo: React.FC = () => (
+  <Recording
+    name="inventory-accuracy-dashboard"
+    file="inventory_accuracy.xlsx"
+    description="Screen recording of an inventory record accuracy and cycle count dashboard in Excel, filtered by month, category, site and zone"
+  />
 );
 
-/* ---------- Slide 3: Supplier scorecard ---------- */
+/* ---------- Supplier scorecard (animated mock) ---------- */
 const SUPPLIERS = [
   { name: 'Supplier A', otif: 94, delay: 0.3 },
   { name: 'Supplier B', otif: 89, delay: 0.6 },
@@ -211,11 +171,13 @@ const SLIDES = [
     seconds: 26,
   },
   {
-    id: 'inventory',
-    eyebrow: 'Inventory Health Check',
-    title: 'See stockouts before they happen.',
-    body: 'Every SKU scored by stockout risk, with clear reorder signals your team can act on this week.',
-    Dashboard: InventoryDashboard,
+    id: 'inventory-accuracy',
+    eyebrow: 'Inventory Accuracy & Cycle Counts',
+    title: 'Find the gap between your system and the shelf.',
+    body: 'A real Excel dashboard, recorded as I use it. Pick a month, category, site or zone to see record accuracy, variance by cause and where mismatches cluster.',
+    Dashboard: InventoryAccuracyVideo,
+    seconds: 24,
+    href: '/project/inventory-accuracy',
   },
   {
     id: 'supplier',
@@ -294,6 +256,16 @@ const DashboardShowcase: React.FC = () => {
                   >
                     {slide.body}
                   </motion.p>
+                  {slide.href && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }} className="mt-6">
+                      <Link
+                        to={slide.href}
+                        className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-matrix-green hover:text-white transition-colors no-underline"
+                      >
+                        See how it works <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </motion.div>
+                  )}
                 </div>
                 <div className="lg:col-span-8">
                   <Dashboard />

@@ -38,6 +38,12 @@ export interface ProjectArticleBlock {
 export interface Project {
   id: string;
   title: string;
+  // One line shown under the page title
+  subtitle?: string;
+  // Search-result snippet for this page; falls back to the site description
+  metaDescription?: string;
+  // Heading of the call-to-action box; falls back to a generic one
+  ctaTitle?: string;
   tags: string[];
   description: string;
   icon: ReactNode;
@@ -61,6 +67,9 @@ export interface Project {
         type: 'video';
         url: string;
         caption?: string;
+        poster?: string;
+        // Silent recordings: play muted on a loop instead of waiting for a click
+        autoplay?: boolean;
       })[];
     };
   };

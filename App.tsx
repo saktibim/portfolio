@@ -80,6 +80,15 @@ const ProjectDetailWrapper = () => {
     trackEvent('case_study_viewed', { project_id: project.id });
   }, [project]);
 
+  // Page-specific search snippet; put the site default back when leaving
+  useEffect(() => {
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (!meta || !project?.metaDescription) return;
+    const siteDescription = meta.content;
+    meta.content = project.metaDescription;
+    return () => { meta.content = siteDescription; };
+  }, [project]);
+
   if (!project) return <div className="pt-40 px-6 text-center font-mono">Project not found</div>;
 
   return <ProjectDetail project={project} onBack={() => navigate('/')} />;

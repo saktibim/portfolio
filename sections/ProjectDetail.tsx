@@ -95,9 +95,14 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                 <div className="h-px bg-gray-100 flex-grow"></div>
               </div>
 
-              <h1 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-off-black leading-normal md:leading-snug tracking-tight">
+              <h1 className={`font-mono text-3xl md:text-4xl lg:text-5xl font-bold ${project.subtitle ? 'mb-6' : 'mb-10'} text-off-black leading-normal md:leading-snug tracking-tight`}>
                 {project.title}
               </h1>
+              {project.subtitle && (
+                <p className="font-sans text-lg md:text-xl text-gray-600 leading-relaxed font-light max-w-3xl mb-10">
+                  {project.subtitle}
+                </p>
+              )}
 
               <div className="flex flex-wrap gap-3">
                 {project.tags.map((tag) => (
@@ -151,13 +156,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
                           <figure key={idx} className="my-12">
                             <video
                               src={block.url}
+                              poster={block.poster}
                               controls
                               playsInline
+                              autoPlay={block.autoplay}
+                              muted={block.autoplay}
+                              loop={block.autoplay}
                               preload="metadata"
                               className="w-full h-auto rounded-lg shadow-xl bg-off-black"
                             />
                             {block.caption && (
-                              <figcaption className="text-center text-[10px] font-mono text-gray-400 mt-4 uppercase tracking-widest">
+                              <figcaption className="text-center font-sans text-sm text-gray-500 mt-4 leading-relaxed">
                                 {block.caption}
                               </figcaption>
                             )}
@@ -225,7 +234,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
 
                 {/* What this means for you */}
                 <div className="border-2 border-off-black p-8 md:p-10">
-                  <p className="font-mono text-lg font-bold text-off-black mb-3">Have the same problem in your business?</p>
+                  <p className="font-mono text-lg font-bold text-off-black mb-3">{project.ctaTitle ?? 'Have the same problem in your business?'}</p>
                   <p className="font-sans text-gray-600 font-light leading-relaxed mb-6">
                     I can build this on your real data, usually in 1–3 weeks, and hand it over so your team keeps using it.
                   </p>
